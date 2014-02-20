@@ -1,5 +1,0 @@
-C:\Users\nms\Documents\GitHub\sql.net\sql.net\sql.net\bin\Debug\sql.net.dll
-C:\Users\nms\Documents\GitHub\sql.net\sql.net\sql.net\bin\Debug\sql.net.pdb
-C:\Users\nms\Documents\GitHub\sql.net\sql.net\sql.net\obj\Debug\sql.net.csprojResolveAssemblyReference.cache
-C:\Users\nms\Documents\GitHub\sql.net\sql.net\sql.net\obj\Debug\sql.net.dll
-C:\Users\nms\Documents\GitHub\sql.net\sql.net\sql.net\obj\Debug\sql.net.pdb
