@@ -1,12 +1,10 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 
-namespace Sql.Net
+namespace Sql.Net.Mathematic
 {
     public static class Constants
     {
-        #region Math
-
         [SqlFunction()]
         public static Double Pi()
         {
@@ -18,7 +16,5 @@ namespace Sql.Net
         {
             return Math.E;
         }
-
-        #endregion
     }
 }
