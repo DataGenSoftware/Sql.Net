@@ -32,17 +32,6 @@ namespace Sql.Net.Types
         }
 
         [SqlFunction()]
-        public static Boolean IsHighSurrogate(Char? character)
-        {
-            Boolean result = false;
-            if (character.HasValue == true)
-            {
-                result = Char.IsHighSurrogate(character.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
         public static Boolean IsLetter(Char? character)
         {
             Boolean result = false;
@@ -71,17 +60,6 @@ namespace Sql.Net.Types
             if (character.HasValue == true)
             {
                 result = Char.IsLower(character.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Boolean IsLowSurrogate(Char? character)
-        {
-            Boolean result = false;
-            if (character.HasValue == true)
-            {
-                result = Char.IsLowSurrogate(character.Value);
             }
             return result;
         }
@@ -120,28 +98,6 @@ namespace Sql.Net.Types
         }
 
         [SqlFunction()]
-        public static Boolean IsSurrogate(Char? character)
-        {
-            Boolean result = false;
-            if (character.HasValue == true)
-            {
-                result = Char.IsSurrogate(character.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Boolean IsSurrogatePair(Char? character1, Char? character2)
-        {
-            Boolean result = false;
-            if (character1.HasValue == true && character2.HasValue == true)
-            {
-                result = Char.IsSurrogatePair(character1.Value, character2.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
         public static Boolean IsSymbol(Char? character)
         {
             Boolean result = false;
@@ -173,40 +129,5 @@ namespace Sql.Net.Types
             }
             return result;
         }
-
-        [SqlFunction()]
-        public static Char MinValue()
-        {
-            return Char.MinValue;
-        }
-
-        [SqlFunction()]
-        public static Char MaxValue()
-        {
-            return Char.MaxValue;
-        }
-
-        [SqlFunction()]
-        public static Char? ToLower(Char? character)
-        {
-            Char? result = null;
-            if (character.HasValue == true)
-            {
-                result = Char.ToLower(character.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Char? ToUpper(Char? character)
-        {
-            Char? result = null;
-            if (character.HasValue == true)
-            {
-                result = Char.ToUpper(character.Value);
-            }
-            return result;
-        }
-
     }
 }

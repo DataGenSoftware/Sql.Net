@@ -21,18 +21,6 @@ namespace Sql.Net.Types
         }
 
         [SqlFunction()]
-        public static Double DoubleMinValue()
-        {
-            return Double.MinValue;
-        }
-
-        [SqlFunction()]
-        public static Double DoubleMaxValue()
-        {
-            return Double.MaxValue;
-        }
-
-        [SqlFunction()]
         public static Double? DoubleTryParse(String value)
         {
             Double? result = null;
@@ -43,74 +31,6 @@ namespace Sql.Net.Types
                 {
                     result = parsedValue;
                 }
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Double DoubleEpsilon()
-        {
-            return Double.Epsilon;
-        }
-
-        [SqlFunction()]
-        public static Double DoubleNaN()
-        {
-            return Double.NaN;
-        }
-
-        [SqlFunction()]
-        public static Double DoublePositiveInfinity()
-        {
-            return Double.PositiveInfinity;
-        }
-
-        [SqlFunction()]
-        public static Double DoubleNegativeInfinity()
-        {
-            return Double.NegativeInfinity;
-        }
-
-        [SqlFunction()]
-        public static Boolean? DoubleIsInfinity(Double? value)
-        {
-            Boolean? result = null;
-            if (value.HasValue == true)
-            {
-                result = Double.IsInfinity(value.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Boolean? DoubleIsNaN(Double? value)
-        {
-            Boolean? result = null;
-            if (value.HasValue == true)
-            {
-                result = Double.IsNaN(value.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Boolean? DoubleIsPositiveInfinity(Double? value)
-        {
-            Boolean? result = null;
-            if (value.HasValue == true)
-            {
-                result = Double.IsPositiveInfinity(value.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Boolean? DoubleIsNegativeInfinity(Double? value)
-        {
-            Boolean? result = null;
-            if (value.HasValue == true)
-            {
-                result = Double.IsNegativeInfinity(value.Value);
             }
             return result;
         }

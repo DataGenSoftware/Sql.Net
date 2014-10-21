@@ -21,18 +21,6 @@ namespace Sql.Net.Types
         }
 
         [SqlFunction()]
-        public static Decimal DecimalMinValue()
-        {
-            return Math.Round(Decimal.MinValue, 10);
-        }
-
-        [SqlFunction()]
-        public static Decimal DecimalMaxValue()
-        {
-            return Decimal.MaxValue;
-        }
-
-        [SqlFunction()]
         public static Decimal? DecimalTryParse(String value)
         {
             Decimal? result = null;
@@ -43,50 +31,6 @@ namespace Sql.Net.Types
                 {
                     result = parsedValue;
                 }
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Decimal? DecimalRound(Decimal? value)
-        {
-            Decimal? result = null;
-            if (value.HasValue == true)
-            {
-                result = Decimal.Round(value.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Decimal? DecimalFloor(Decimal? value)
-        {
-            Decimal? result = null;
-            if (value.HasValue == true)
-            {
-                result = Decimal.Floor(value.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Decimal? DecimalCeiling(Decimal? value)
-        {
-            Decimal? result = null;
-            if (value.HasValue == true)
-            {
-                result = Decimal.Ceiling(value.Value);
-            }
-            return result;
-        }
-
-        [SqlFunction()]
-        public static Decimal? DecimalTruncate(Decimal? value)
-        {
-            Decimal? result = null;
-            if (value.HasValue == true)
-            {
-                result = Decimal.Truncate(value.Value);
             }
             return result;
         }

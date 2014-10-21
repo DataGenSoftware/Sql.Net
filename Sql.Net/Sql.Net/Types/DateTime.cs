@@ -22,24 +22,27 @@ namespace Sql.Net.Types
         }
 
         [SqlFunction()]
-        public static SqlDateTime DateTimeMinValue()
-        {
-            return SqlDateTime.MinValue;
-        }
-
-        [SqlFunction()]
-        public static SqlDateTime DateTimeMaxValue()
-        {
-            return SqlDateTime.MaxValue;
-        }
-
-        [SqlFunction()]
         public static Int32? DateTimeDaysInMonth(Int32? year, Int32? month)
         {
             Int32? result = null;
             if (year.HasValue == true && month.HasValue == true)
             {
                 result = DateTime.DaysInMonth(year.Value, month.Value);
+            }
+            return result;
+        }
+
+        [SqlFunction()]
+        public static Int32? DateTimeDaysInYear(Int32? year)
+        {
+            Int32? result = null;
+            if (year.HasValue == true)
+            {
+                bool? isLeapYear = DateTimeType.DateTimeIsLeapYear(year);
+                if (isLeapYear.HasValue)
+                {
+                    result = isLeapYear.Value ? 366 : 365;
+                }
             }
             return result;
         }
