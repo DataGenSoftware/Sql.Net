@@ -23,7 +23,7 @@ namespace Sql.Net.Types
         [SqlFunction()]
         public static Decimal DecimalMinValue()
         {
-            return Decimal.MinValue;
+            return Math.Round(Decimal.MinValue, 10);
         }
 
         [SqlFunction()]

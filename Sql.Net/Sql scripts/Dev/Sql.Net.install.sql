@@ -1,15 +1,13 @@
---PREINSTALL
-EXEC sp_configure 'clr enabled' , '1' 
-GO
-RECONFIGURE 
-GO
-
 --INSTALL
 CREATE ASSEMBLY [Sql.Net]
 FROM 'C:\Users\nms\Documents\GitHub\sql.net\Sql.Net\Sql.Net\bin\Debug\Sql.Net.dll'
 GO
 
 CREATE SCHEMA [Sql.Net]
+GO
+
+CREATE AGGREGATE [Sql.Net].[Aggr.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
+EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
 GO
 
 CREATE FUNCTION [Sql.Net].[Math.Const.Pi]() RETURNS float
@@ -90,37 +88,53 @@ CREATE FUNCTION [Sql.Net].[Types.Char.ToUpper](@character nchar(1)) RETURNS ncha
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.CharType].[ToUpper]
 GO
 
-CREATE AGGREGATE [Sql.Net].[Aggr.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
-EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
-
-
---UNINSTALL
-DROP FUNCTION [Sql.Net].[Math.Const.Pi]
+CREATE FUNCTION [Sql.Net].[Types.DateTime.ToString](@dateTime datetime, @format nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeToString
 GO
-DROP FUNCTION [Sql.Net].[Math.Const.E]
+CREATE FUNCTION [Sql.Net].[Types.DateTime.MinValue]() RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeMinValue
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.MaxValue]() RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeMaxValue
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.DaysInMonth](@year int, @month int) RETURNS int
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeDaysInMonth
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.IsLeapYear](@year int) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeIsLeapYear
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.Date](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeDate
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.DateTimeTimeOfDay](@dateTime datetime) RETURNS time
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeTimeOfDay
+GO
+
+CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal, @format nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalToString
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.MinValue]() RETURNS decimal(38,18)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalMinValue
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.MaxValue]() RETURNS decimal
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalMaxValue
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.TryParse](@value nvarchar(max)) RETURNS decimal
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalTryParse
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.Round](@value decimal) RETURNS decimal
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalRound
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.Floor](@value decimal) RETURNS decimal
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalFloor
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.Ceiling](@value decimal) RETURNS decimal
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalCeiling
+GO
+CREATE FUNCTION [Sql.Net].[Types.Decimal.Truncate](@value decimal) RETURNS decimal
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalTruncate
 GO
 
 
-DROP AGGREGATE [Sql.Net].[Aggr.Join]
-GO
- 
-DROP SCHEMA [Sql.Net]
-GO
 
-DROP ASSEMBLY [Sql.Net]
-GO
 
---TEST
-SELECT [Sql.Net].[Math.Const.Pi]()
-SELECT [Sql.Net].[Math.Const.E]()
-
-select [Sql.Net].[Types.Bool.ToString](0)
-select [Sql.Net].[Types.Bool.FalseString]()
-select [Sql.Net].[Types.Bool.TrueString]()
-select [Sql.Net].[Types.Bool.TryParse]('false')
-
-select [Sql.Net].[Types.Char.IsDigit]('1d')
-select [Sql.Net].[Types.Char.IsNumber]('0')
-select [Sql.Net].[Types.Char.IsUpper]('A')
-
-select [Sql.Net].[Aggr.Join](name, ',') from sys.objects
