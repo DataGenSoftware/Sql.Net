@@ -15,28 +15,28 @@ namespace Sql.Net.Types
         }
 
         [SqlFunction()]
-        public static String IntToWordsPL(Int32? value)
-        {
-            return Int64ToWordsPL(value);
-        }
-
-        [SqlFunction()]
-        public static Int32 IntMinValue()
-        {
-            return Int32MinValue();
-        }
-
-        [SqlFunction()]
-        public static Int32 IntMaxValue()
-        {
-            return Int32MaxValue();
-        }
-
-        [SqlFunction()]
         public static Int32? IntTryParse(String value)
         {
             return Int32TryParse(value);
         }
+
+		  [SqlFunction()]
+		  public static Int32 IntMinValue()
+		  {
+			  return Int32MinValue();
+		  }
+
+		  [SqlFunction()]
+		  public static Int32 IntMaxValue()
+		  {
+			  return Int32MaxValue();
+		  }
+
+		  [SqlFunction()]
+		  public static String IntToWordsPL(Int32? value)
+		  {
+			  return Int64ToWordsPL(value);
+		  }
 
         #endregion
 
