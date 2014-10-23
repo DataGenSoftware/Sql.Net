@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Sql.Net.Types
 {
-    public partial class Doubletype
+    public partial class DoubleType
     {
         [SqlFunction()]
-        public static String DoubleTostring(Double? value, String format)
+        public static String DoubleToString(Double? value, String format)
         {
             String result = null;
             if (value.HasValue == true && format != null)

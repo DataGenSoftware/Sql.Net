@@ -50,13 +50,42 @@ DROP FUNCTION [Sql.Net].[Types.DateTime.IsLeapYear]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.Date]
 GO
-DROP FUNCTION [Sql.Net].[Types.DateTime.DateTimeTimeOfDay]
+DROP FUNCTION [Sql.Net].[Types.DateTime.TimeOfDay]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.IsWeekendDay]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.IsWeekDay]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.IsToday]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.BeginingOfDay]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfDay]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.BeginingOfMonth]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfMonth]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.FirstDayOfMonth]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.LastDayOfMonth]
 GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
 GO
 DROP FUNCTION [Sql.Net].[Types.Decimal.TryParse]
- 
+GO
+
+DROP FUNCTION [Sql.Net].[Types.Double.ToString]
+GO
+DROP FUNCTION [Sql.Net].[Types.Double.TryParse]
+GO
+
+DROP FUNCTION [Sql.Net].[Types.Single.ToString]
+GO
+DROP FUNCTION [Sql.Net].[Types.Single.TryParse]
+GO
+
 DROP SCHEMA [Sql.Net]
 GO
 

@@ -5,6 +5,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sql.Net.Common;
 
 namespace Sql.Net.Types
 {
@@ -79,5 +80,104 @@ namespace Sql.Net.Types
             }
             return result;
         }
+
+		  [SqlFunction()]
+		  public static Boolean? DateTimeIsWeekendDay(DateTime? dateTime)
+		  {
+			  Boolean? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.IsWeekendDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static Boolean? DateTimeIsWeekDay(DateTime? dateTime)
+		  {
+			  Boolean? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.IsWeekDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static Boolean? DateTimeIsToday(DateTime? dateTime)
+		  {
+			  Boolean? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.IsToday();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateBeginingOfDay(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.BeginingOfDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateEndOfDay(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.EndOfDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateBeginingOfMonth(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.BeginingOfDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateEndOfMonth(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.EndOfDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateFirstDayOfMonth(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.FirstDayOfMonth();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateLastDayOfMonth(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.FirstDayOfMonth();
+			  }
+			  return result;
+		  }
     }
 }

@@ -363,7 +363,8 @@ namespace Sql.Net.Common
             else
                 return null;
         }
-        public static string DESEncrypt(this string value, string key)
+        
+		  public static string DESEncrypt(this string value, string key)
         {
             SymmetricAlgorithm symmetricAlgorithm = new DESCryptoServiceProvider();
             symmetricAlgorithm.Mode = CipherMode.ECB;
@@ -542,29 +543,39 @@ namespace Sql.Net.Common
 
     public static class DateTimeExtensions
     {
-        public static bool IsWeekendDay(DateTime value)
+        public static bool IsWeekendDay(this DateTime value)
         {
             return value.DayOfWeek == DayOfWeek.Saturday || value.DayOfWeek == DayOfWeek.Sunday;
         }
 
-        public static bool IsWeekDay(DateTime value)
+        public static bool IsWeekDay(this DateTime value)
         {
             return DateTimeExtensions.IsWeekendDay(value) == false;
         }
 
         public static DateTime BeginingOfDay(this DateTime value)
         {
-            return value.Subtract(value.TimeOfDay);
+			  return value.Date;
         }
 
         public static DateTime EndOfDay(this DateTime value)
         {
-            return value.Subtract(value.TimeOfDay).AddDays(1).AddTicks(-1);
+			  return value.Date.AddDays(1).AddTicks(-1);
         }
+
+		  public static DateTime BeginingOfMonth(this DateTime value)
+		  {
+			  return new DateTime(value.Year, value.Month, 1);
+		  }
+
+		  public static DateTime EndOfMonth(this DateTime value)
+		  {
+			  return value.BeginingOfMonth().AddMonths(1).AddTicks(-1);
+		  }
 
         public static DateTime FirstDayOfMonth(this DateTime value)
         {
-            return value.BeginingOfDay().AddDays(-1 * value.Day);
+            return new DateTime(value.Year, value.Month, 1);
         }
 
         public static DateTime LastDayOfMonth(this DateTime value)

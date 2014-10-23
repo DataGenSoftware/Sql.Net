@@ -10,7 +10,7 @@ namespace Sql.Net.Types
     public static class SingleType
     {
         [SqlFunction()]
-        public static String SingleTostring(Single? value, String format)
+        public static String SingleToString(Single? value, String format)
         {
             String result = null;
             if (value.HasValue == true && format != null)

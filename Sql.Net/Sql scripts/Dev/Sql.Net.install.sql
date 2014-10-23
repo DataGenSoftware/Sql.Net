@@ -79,8 +79,35 @@ GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.Date](@dateTime datetime) RETURNS datetime
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeDate
 GO
-CREATE FUNCTION [Sql.Net].[Types.DateTime.DateTimeTimeOfDay](@dateTime datetime) RETURNS time
+CREATE FUNCTION [Sql.Net].[Types.DateTime.TimeOfDay](@dateTime datetime) RETURNS time
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeTimeOfDay
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.IsWeekendDay](@dateTime datetime) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeIsWeekendDay
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.IsWeekDay](@dateTime datetime) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeIsWeekDay
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.IsToday](@dateTime datetime) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateTimeIsToday
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.BeginingOfDay](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateBeginingOfDay
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.EndOfDay](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateEndOfDay
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.BeginingOfMonth](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateBeginingOfMonth
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.EndOfMonth](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateEndOfMonth
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.FirstDayOfMonth](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateFirstDayOfMonth
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.LastDayOfMonth](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateLastDayOfMonth
 GO
 
 CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal, @format nvarchar(max)) RETURNS nvarchar(max)
@@ -88,6 +115,20 @@ AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalToString
 GO
 CREATE FUNCTION [Sql.Net].[Types.Decimal.TryParse](@value nvarchar(max)) RETURNS decimal
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalTryParse
+GO
+
+CREATE FUNCTION [Sql.Net].[Types.Double.ToString](@value float, @format nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DoubleType].DoubleToString
+GO
+CREATE FUNCTION [Sql.Net].[Types.Double.TryParse](@value nvarchar(max)) RETURNS float
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DoubleType].DoubleTryParse
+GO
+
+CREATE FUNCTION [Sql.Net].[Types.Single.ToString](@value real, @format nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.SingleType].SingleToString
+GO
+CREATE FUNCTION [Sql.Net].[Types.Single.TryParse](@value nvarchar(max)) RETURNS real
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.SingleType].SingleTryParse
 GO
 
 
