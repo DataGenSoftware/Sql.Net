@@ -70,6 +70,10 @@ DROP FUNCTION [Sql.Net].[Types.DateTime.FirstDayOfMonth]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.LastDayOfMonth]
 GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.BeginingOfWeek]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek]
+GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
 GO
@@ -95,6 +99,39 @@ GO
 DROP FUNCTION [Sql.Net].[Types.Single.ToString]
 GO
 DROP FUNCTION [Sql.Net].[Types.Single.TryParse]
+GO
+
+DROP FUNCTION [Sql.Net].[Types.String.Contains]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.EndsWith]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.StartsWith]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.IndexOf]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.LastIndexOf]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.Insert]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.PadLeft]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.PadRight]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.Split]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.TextGetBetweenTexts]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.TripleDESEncrypt]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.TripleDESDecrypt]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.MD5ComputeHash]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.MD5VerifyHash]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.SHA1ComputeHash]
+GO
+DROP FUNCTION [Sql.Net].[Types.String.SHA1VerifyHash]
 GO
 
 DROP SCHEMA [Sql.Net]

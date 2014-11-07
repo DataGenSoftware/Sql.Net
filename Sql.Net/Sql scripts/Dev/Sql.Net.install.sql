@@ -109,6 +109,12 @@ GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.LastDayOfMonth](@dateTime datetime) RETURNS datetime
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateLastDayOfMonth
 GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.BeginingOfWeek](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateBeginingOfWeek
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateEndOfWeek
+GO
 
 CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal, @format nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalToString
@@ -147,4 +153,51 @@ CREATE FUNCTION [Sql.Net].[Types.Single.TryParse](@value nvarchar(max)) RETURNS 
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.SingleType].SingleTryParse
 GO
 
-
+CREATE FUNCTION [Sql.Net].[Types.String.Contains](@text nvarchar(max), @valuet nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringContains
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.EndsWith](@text nvarchar(max), @valuet nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringEndsWith
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.StartsWith](@text nvarchar(max), @valuet nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringStartsWith
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.IndexOf](@text nvarchar(max), @valuet nvarchar(max)) RETURNS int
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringIndexOf
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.LastIndexOf](@text nvarchar(max), @valuet nvarchar(max)) RETURNS int
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringLastIndexOf
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.Insert](@text nvarchar(max), @startIndex int, @valuet nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringInsert
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.PadLeft](@text nvarchar(max), @totalWidth int) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringPadLeft
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.PadRight](@text nvarchar(max), @totalWidth int) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringPadRight
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.Split](@text nvarchar(max), @separator nvarchar(max)) RETURNS table (string nvarchar(max))
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringSplit
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.TextGetBetweenTexts](@text nvarchar(max), @startText nvarchar(max), @endText nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringTextGetBetweenTexts
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.TripleDESEncrypt](@text nvarchar(max), @key nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringTripleDESEncrypt
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.TripleDESDecrypt](@text nvarchar(max), @key nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringTripleDESDecrypt
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.MD5ComputeHash](@text nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringMD5ComputeHash
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.MD5VerifyHash](@text nvarchar(max), @hash nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringMD5VerifyHash
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.SHA1ComputeHash](@text nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringSHA1ComputeHash
+GO
+CREATE FUNCTION [Sql.Net].[Types.String.SHA1VerifyHash](@text nvarchar(max), @hash nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringSHA1VerifyHash
+GO

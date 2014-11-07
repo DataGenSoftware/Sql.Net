@@ -164,7 +164,7 @@ namespace Sql.Net.Types
 			  DateTime? result = null;
 			  if (dateTime.HasValue == true)
 			  {
-				  result = dateTime.Value.FirstDayOfMonth();
+				  result = dateTime.Value.BeginingOfMonth();
 			  }
 			  return result;
 		  }
@@ -175,7 +175,29 @@ namespace Sql.Net.Types
 			  DateTime? result = null;
 			  if (dateTime.HasValue == true)
 			  {
-				  result = dateTime.Value.FirstDayOfMonth();
+				  result = dateTime.Value.EndOfMonth();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateBeginingOfWeek(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.BeginingOfDay();
+			  }
+			  return result;
+		  }
+
+		  [SqlFunction()]
+		  public static DateTime? DateEndOfWeek(DateTime? dateTime)
+		  {
+			  DateTime? result = null;
+			  if (dateTime.HasValue == true)
+			  {
+				  result = dateTime.Value.EndOfDay();
 			  }
 			  return result;
 		  }

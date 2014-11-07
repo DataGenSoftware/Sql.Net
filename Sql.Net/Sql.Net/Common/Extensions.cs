@@ -583,6 +583,27 @@ namespace Sql.Net.Common
             return value.FirstDayOfMonth().AddMonths(1).AddDays(-1);
         }
 
+		  public static DateTime BeginingOfWeek(this DateTime value, DayOfWeek firstDayOfWeek)
+		  {
+			  int daysOffset = value.DayOfWeek - firstDayOfWeek;
+			  return value.AddDays(daysOffset).Date;
+		  }
+
+		  public static DateTime BeginingOfWeek(this DateTime value)
+		  {
+			  return value.BeginingOfWeek(DayOfWeek.Monday);
+		  }
+
+		  public static DateTime EndOfWeek(this DateTime value, DayOfWeek firstDayOfWeek)
+		  {
+			  return value.BeginingOfWeek(firstDayOfWeek).AddWeeks(1).AddTicks(-1);
+		  }
+
+		  public static DateTime EndOfWeek(this DateTime value)
+		  {
+			  return value.EndOfWeek(DayOfWeek.Monday);
+		  }
+
         public static bool IsToday(this DateTime value)
         {
             return value.Date == DateTime.Today;
