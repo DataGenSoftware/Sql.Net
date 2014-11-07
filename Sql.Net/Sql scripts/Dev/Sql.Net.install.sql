@@ -130,22 +130,6 @@ CREATE FUNCTION [Sql.Net].[Types.Double.TryParse](@value nvarchar(max)) RETURNS 
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DoubleType].DoubleTryParse
 GO
 
-CREATE FUNCTION [Sql.Net].[Types.Int.ToString](@value int, @format nvarchar(max)) RETURNS nvarchar(max)
-AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.IntType].IntToString
-GO
-CREATE FUNCTION [Sql.Net].[Types.Int.TryParse](@value nvarchar(max)) RETURNS int
-AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.IntType].IntTryParse
-GO
-CREATE FUNCTION [Sql.Net].[Types.Int.MinValue]() RETURNS int
-AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.IntType].IntMinValue
-GO
-CREATE FUNCTION [Sql.Net].[Types.Int.MaxValue]() RETURNS int
-AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.IntType].IntMaxValue
-GO
-CREATE FUNCTION [Sql.Net].[Types.Int.ToWordsPL](@value int) RETURNS nvarchar(max)
-AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.IntType].IntToWordsPL
-GO
-
 CREATE FUNCTION [Sql.Net].[Types.Single.ToString](@value real, @format nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.SingleType].SingleToString
 GO

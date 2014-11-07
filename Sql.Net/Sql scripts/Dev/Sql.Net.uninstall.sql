@@ -85,17 +85,6 @@ GO
 DROP FUNCTION [Sql.Net].[Types.Double.TryParse]
 GO
 
-DROP FUNCTION [Sql.Net].[Types.Int.ToString]
-GO
-DROP FUNCTION [Sql.Net].[Types.Int.TryParse]
-GO
-DROP FUNCTION [Sql.Net].[Types.Int.MinValue]
-GO
-DROP FUNCTION [Sql.Net].[Types.Int.MaxValue]
-GO
-DROP FUNCTION [Sql.Net].[Types.Int.ToWordsPL]
-GO
-
 DROP FUNCTION [Sql.Net].[Types.Single.ToString]
 GO
 DROP FUNCTION [Sql.Net].[Types.Single.TryParse]
