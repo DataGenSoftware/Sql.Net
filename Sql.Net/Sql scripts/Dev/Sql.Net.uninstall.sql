@@ -2,6 +2,8 @@
 
 DROP AGGREGATE [Sql.Net].[Aggregate.Join]
 GO
+DROP SYNONyM [dbo].[join]
+GO
 
 DROP FUNCTION [Sql.Net].[Math.Const.Pi]
 GO

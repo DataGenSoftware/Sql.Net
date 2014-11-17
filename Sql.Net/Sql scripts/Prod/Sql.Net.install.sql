@@ -9,6 +9,8 @@ GO
 CREATE AGGREGATE [Sql.Net].[Aggregate.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
 EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
 GO
+CREATE SYNONYM [dbo].[join] FOR [Sql.Net].[Aggregate.Join]
+GO
 
 CREATE FUNCTION [Sql.Net].[Math.Const.Pi]() RETURNS float
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Mathematic.Constants].[Pi]
