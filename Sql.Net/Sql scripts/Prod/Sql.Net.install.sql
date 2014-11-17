@@ -6,7 +6,7 @@ GO
 CREATE SCHEMA [Sql.Net]
 GO
 
-CREATE AGGREGATE [Sql.Net].[Aggr.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
+CREATE AGGREGATE [Sql.Net].[Aggregate.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
 EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
 GO
 

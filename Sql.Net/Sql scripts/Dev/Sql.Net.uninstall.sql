@@ -1,6 +1,6 @@
 --UNINSTALL
 
-DROP AGGREGATE [Sql.Net].[Aggr.Join]
+DROP AGGREGATE [Sql.Net].[Aggregate.Join]
 GO
 
 DROP FUNCTION [Sql.Net].[Math.Const.Pi]
