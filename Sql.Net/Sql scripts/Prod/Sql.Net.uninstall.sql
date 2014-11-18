@@ -1,6 +1,12 @@
 --UNINSTALL
 
-DROP AGGREGATE [Sql.Net].[Aggr.Join]
+DROP AGGREGATE [Sql.Net].[Aggregate.Join]
+GO
+DROP SYNONyM [dbo].[join]
+GO
+DROP AGGREGATE [Sql.Net].[Aggregate.Mode]
+GO
+DROP SYNONyM [dbo].[mode]
 GO
 
 DROP FUNCTION [Sql.Net].[Math.Const.Pi]

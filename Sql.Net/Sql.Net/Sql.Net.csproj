@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aggregates\Mode.cs" />
     <Compile Include="Aggregates\Join.cs" />
     <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\Serializator.cs" />
     <Compile Include="Mathematic\Constants.cs" />
     <Compile Include="System\EnvirontmentVariables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
