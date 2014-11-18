@@ -24,4 +24,5 @@ select [Sql.Net].[Types.Decimal.Floor](1.4)
 select [Sql.Net].[Types.Decimal.Ceiling](1.4)
 
 
-select [Sql.Net].[Aggr.Join](name, ',') from sys.objects
+select [Sql.Net].[Aggregate.Join](name, ',') from sys.objects
+select [dbo].[join](name, ',') from sys.objects

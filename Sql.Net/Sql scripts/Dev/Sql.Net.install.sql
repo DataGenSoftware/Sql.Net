@@ -1,10 +1,16 @@
 --INSTALL
 CREATE ASSEMBLY [Sql.Net]
 FROM 'C:\Users\nms\Documents\GitHub\sql.net\Sql.Net\Sql.Net\bin\Debug\Sql.Net.dll'
+WITH PERMISSION_SET = UNSAFE 
 GO
 
 CREATE SCHEMA [Sql.Net]
 GO
+
+CREATE AGGREGATE [Sql.Net].[Aggregate.Mode] (@value sql_variant) RETURNS sql_variant
+EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Mode]
+GO
+
 
 CREATE AGGREGATE [Sql.Net].[Aggr.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
 EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
