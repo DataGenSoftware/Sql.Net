@@ -159,22 +159,22 @@ CREATE FUNCTION [Sql.Net].[Types.Single.TryParse](@value nvarchar(max)) RETURNS 
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.SingleType].SingleTryParse
 GO
 
-CREATE FUNCTION [Sql.Net].[Types.String.Contains](@text nvarchar(max), @valuet nvarchar(max)) RETURNS bit
+CREATE FUNCTION [Sql.Net].[Types.String.Contains](@text nvarchar(max), @value nvarchar(max)) RETURNS bit
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringContains
 GO
-CREATE FUNCTION [Sql.Net].[Types.String.EndsWith](@text nvarchar(max), @valuet nvarchar(max)) RETURNS bit
+CREATE FUNCTION [Sql.Net].[Types.String.EndsWith](@text nvarchar(max), @value nvarchar(max)) RETURNS bit
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringEndsWith
 GO
-CREATE FUNCTION [Sql.Net].[Types.String.StartsWith](@text nvarchar(max), @valuet nvarchar(max)) RETURNS bit
+CREATE FUNCTION [Sql.Net].[Types.String.StartsWith](@text nvarchar(max), @value nvarchar(max)) RETURNS bit
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringStartsWith
 GO
-CREATE FUNCTION [Sql.Net].[Types.String.IndexOf](@text nvarchar(max), @valuet nvarchar(max)) RETURNS int
+CREATE FUNCTION [Sql.Net].[Types.String.IndexOf](@text nvarchar(max), @value nvarchar(max)) RETURNS int
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringIndexOf
 GO
-CREATE FUNCTION [Sql.Net].[Types.String.LastIndexOf](@text nvarchar(max), @valuet nvarchar(max)) RETURNS int
+CREATE FUNCTION [Sql.Net].[Types.String.LastIndexOf](@text nvarchar(max), @value nvarchar(max)) RETURNS int
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringLastIndexOf
 GO
-CREATE FUNCTION [Sql.Net].[Types.String.Insert](@text nvarchar(max), @startIndex int, @valuet nvarchar(max)) RETURNS nvarchar(max)
+CREATE FUNCTION [Sql.Net].[Types.String.Insert](@text nvarchar(max), @startIndex int, @value nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringInsert
 GO
 CREATE FUNCTION [Sql.Net].[Types.String.PadLeft](@text nvarchar(max), @totalWidth int) RETURNS nvarchar(max)
