@@ -13,61 +13,61 @@ using Sql.Net.Common;
 
 namespace Sql.Net.Aggregates
 {
-		  [Serializable]
-        [SqlUserDefinedAggregate(Format.UserDefined, IsInvariantToOrder = true, IsInvariantToNulls = true, IsInvariantToDuplicates = false, MaxByteSize = -1)]
-		  public struct Mode : IBinarySerialize
-        {
-			   private ConcurrentDictionary<object, int> result;
+	[Serializable]
+	[SqlUserDefinedAggregate(Format.UserDefined, IsInvariantToOrder = true, IsInvariantToNulls = true, IsInvariantToDuplicates = false, MaxByteSize = -1)]
+	public struct Mode : IBinarySerialize
+	{
+		private ConcurrentDictionary<object, int> result;
 
-            public void Init()
-            {
-					this.result = new ConcurrentDictionary<object, int>();
-            }
+		public void Init()
+		{
+			this.result = new ConcurrentDictionary<object, int>();
+		}
 
-            public void Accumulate(object value)
-            {
-                if (value != null)
-                {
-                    if (this.result.ContainsKey(value) || !this.result.TryAdd(value, 1))
-						  {
-							  this.result[value]++;
-						  }
-                }
-            }
-
-            public void Merge(Mode value)
+		public void Accumulate(object value)
+		{
+			if (value != null)
+			{
+				if (this.result.ContainsKey(value) || !this.result.TryAdd(value, 1))
 				{
-                foreach(var valueResult in value.result)
-					 {
-						 if (this.result.ContainsKey(valueResult.Key) || !this.result.TryAdd(valueResult.Key, valueResult.Value))
-						 {
-							 this.result[valueResult.Key] += valueResult.Value;
-						 }
-					 }
-            }
-
-            public object Terminate()
-            {
-					if (this.result != null && this.result.Count > 0)
-					{
-						var modeValue = this.result.OrderByDescending(item => item.Value).First().Value;
-						var modeFirstKey = this.result.Where(item => item.Value == modeValue).OrderBy(item => item.Key).First().Key;
-						return modeFirstKey;
-					}
-					else
-					{
-						return null;
-					}
-            }
-
-				void IBinarySerialize.Read(BinaryReader reader)
-				{
-					this.result = (ConcurrentDictionary<object, int>)Serializator.Deserialize(reader.ReadString());
+					this.result[value]++;
 				}
+			}
+		}
 
-				void IBinarySerialize.Write(BinaryWriter writer)
+		public void Merge(Mode value)
+		{
+			foreach(var valueResult in value.result)
+			{
+				if (this.result.ContainsKey(valueResult.Key) || !this.result.TryAdd(valueResult.Key, valueResult.Value))
 				{
-					writer.Write(Serializator.Serialize(this.result));
+					this.result[valueResult.Key] += valueResult.Value;
 				}
-        }
-    }
+			}
+		}
+
+		public object Terminate()
+		{
+			if (this.result != null && this.result.Count > 0)
+			{
+				var modeValue = this.result.OrderByDescending(item => item.Value).First().Value;
+				var modeFirstKey = this.result.Where(item => item.Value == modeValue).OrderBy(item => item.Key).First().Key;
+				return modeFirstKey;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		void IBinarySerialize.Read(BinaryReader reader)
+		{
+			this.result = (ConcurrentDictionary<object, int>)Serializator.Deserialize(reader.ReadString());
+		}
+
+		void IBinarySerialize.Write(BinaryWriter writer)
+		{
+			writer.Write(Serializator.Serialize(this.result));
+		}
+	}
+}
