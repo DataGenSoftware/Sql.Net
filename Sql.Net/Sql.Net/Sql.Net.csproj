@@ -41,8 +41,12 @@
   <ItemGroup>
     <Compile Include="Aggregates\Mode.cs" />
     <Compile Include="Aggregates\Join.cs" />
-    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\ByteExtensions.cs" />
+    <Compile Include="Common\CharExtensions.cs" />
+    <Compile Include="Common\DateExtensions.cs" />
+    <Compile Include="Common\IntegerExtensions.cs" />
     <Compile Include="Common\Serializator.cs" />
+    <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Mathematic\Constants.cs" />
     <Compile Include="System\EnvirontmentVariables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
