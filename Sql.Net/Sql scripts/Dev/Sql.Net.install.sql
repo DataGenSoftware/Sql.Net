@@ -1,19 +1,21 @@
 --INSTALL
 CREATE ASSEMBLY [Sql.Net]
-FROM 'C:\Users\nms\Documents\GitHub\sql.net\Sql.Net\Sql.Net\bin\Debug\Sql.Net.dll'
+FROM 'C:\DataGen\Sql.Net\Sql.Net\Sql.Net\bin\Release\Sql.Net.dll'
 WITH PERMISSION_SET = UNSAFE 
 GO
 
 CREATE SCHEMA [Sql.Net]
 GO
 
+CREATE AGGREGATE [Sql.Net].[Aggregate.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
+EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
+GO
+CREATE SYNONYM [dbo].[join] FOR [Sql.Net].[Aggregate.Join]
+GO
 CREATE AGGREGATE [Sql.Net].[Aggregate.Mode] (@value sql_variant) RETURNS sql_variant
 EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Mode]
 GO
-
-
-CREATE AGGREGATE [Sql.Net].[Aggr.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
-EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
+CREATE SYNONYM [dbo].[mode] FOR [Sql.Net].[Aggregate.Mode]
 GO
 
 CREATE FUNCTION [Sql.Net].[Math.Const.Pi]() RETURNS float
@@ -206,4 +208,8 @@ AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringSHA1ComputeHash
 GO
 CREATE FUNCTION [Sql.Net].[Types.String.SHA1VerifyHash](@text nvarchar(max), @hash nvarchar(max)) RETURNS bit
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.StringType].StringSHA1VerifyHash
+GO
+
+CREATE FUNCTION [Sql.Net].[System.EnvironmentVariables.Get](@name nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.System.EnvironmentVariables].Get
 GO

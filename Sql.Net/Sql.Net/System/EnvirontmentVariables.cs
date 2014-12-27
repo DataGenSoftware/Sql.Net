@@ -1,8 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 
-// TODO: change the namespace
-namespace Sql.Net.Sys
+namespace Sql.Net.System
 {
 	public static class EnvironmentVariables
 	{
@@ -15,48 +14,6 @@ namespace Sql.Net.Sys
 				result = Environment.GetEnvironmentVariable(name);
 			}
 			return result;
-		}
-
-		[SqlFunction()]
-		public static String MachineName()
-		{
-			return Environment.MachineName;
-		}
-
-		[SqlFunction()]
-		public static String NewLine()
-		{
-			return Environment.NewLine;
-		}
-
-		[SqlFunction()]
-		public static String OSVersion()
-		{
-			return Environment.OSVersion.VersionString;
-		}
-
-		[SqlFunction()]
-		public static Int32 ProcessorCount()
-		{
-			return Environment.ProcessorCount;
-		}
-
-		[SqlFunction()]
-		public static String SystemDirectory()
-		{
-			return Environment.SystemDirectory;
-		}
-
-		[SqlFunction()]
-		public static String UserDomainName()
-		{
-			return Environment.UserDomainName;
-		}
-
-		[SqlFunction()]
-		public static String UserName()
-		{
-			return Environment.UserName;
 		}
 	}
 }

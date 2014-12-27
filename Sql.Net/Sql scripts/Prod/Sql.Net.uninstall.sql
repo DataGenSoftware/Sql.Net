@@ -140,6 +140,9 @@ GO
 DROP FUNCTION [Sql.Net].[Types.String.SHA1VerifyHash]
 GO
 
+DROP FUNCTION [Sql.Net].[System.EnvironmentVariables.Get]
+GO
+
 DROP SCHEMA [Sql.Net]
 GO
 
