@@ -123,6 +123,41 @@ GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek](@dateTime datetime) RETURNS datetime
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateEndOfWeek
 GO
+CREATE TABLE [Sql.Net].[Types.DateTime.Holidays]
+(
+	[Date] [datetime] NOT NULL,
+	CONSTRAINT [PK_Holidays] PRIMARY KEY CLUSTERED 
+	(
+		[Date] ASC
+	)
+)
+GO
+CREATE PROCEDURE [Sql.Net].[Types.DateTime.HolidaysClear] AS
+BEGIN
+	TRUNCATE TABLE [Sql.Net].[Types.DateTime.Holidays]
+END
+GO
+CREATE PROCEDURE [Sql.Net].[Types.DateTime.HolidayAdd] @date datetime AS
+BEGIN
+	SET @date = [Sql.Net].[Types.DateTime.Date](@date)
+	INSERT INTO [Sql.Net].[Types.DateTime.Holidays] ([Date]) VALUES (@date)
+END
+GO
+CREATE PROCEDURE [Sql.Net].[Types.DateTime.HolidayRemove] @date datetime AS
+BEGIN
+	SET @date = [Sql.Net].[Types.DateTime.Date](@date)
+	DELETE FROM [Sql.Net].[Types.DateTime.Holidays] WHERE [Date] = @date
+END
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.IsHoliday](@dateTime datetime) RETURNS BIT AS
+BEGIN
+	SET @dateTime = [Sql.Net].[Types.DateTime.Date](@dateTime)
+	RETURN 
+		(SELECT CONVERT(BIT, COUNT([Date])) 
+			FROM [Sql.Net].[Types.DateTime.Holidays] 
+			WHERE [Date] =  @dateTime)
+END
+GO
 
 CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal, @format nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalToString
