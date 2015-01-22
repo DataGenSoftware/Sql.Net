@@ -80,6 +80,16 @@ DROP FUNCTION [Sql.Net].[Types.DateTime.BeginingOfWeek]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek]
 GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.IsHoliday]
+GO
+DROP PROCEDURE [Sql.Net].[Types.DateTime.HolidaysClear]
+GO
+DROP PROCEDURE [Sql.Net].[Types.DateTime.HolidayAdd]
+GO
+DROP PROCEDURE [Sql.Net].[Types.DateTime.HolidayRemove]
+GO
+DROP TABLE [Sql.Net].[Types.DateTime.Holidays]
+GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
 GO
