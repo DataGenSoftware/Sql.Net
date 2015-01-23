@@ -1,4 +1,14 @@
 --INSTALL
+
+EXEC sp_configure 'clr enabled' , '1' 
+GO
+RECONFIGURE 
+GO
+DECLARE @query nvarchar(max)
+SET @query = 'ALTER DATABASE [' + db_name() + '] SET TRUSTWORTHY ON'
+EXEC sp_executesql @query
+GO
+
 CREATE ASSEMBLY [Sql.Net]
 FROM 'C:\DataGen\Sql.Net\Sql.Net\Sql.Net\bin\Release\Sql.Net.dll'
 WITH PERMISSION_SET = UNSAFE 
