@@ -186,7 +186,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.BeginingOfDay();
+				result = dateTime.Value.BeginingOfWeek();
 			}
 			return result;
 		}
@@ -197,7 +197,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.EndOfDay();
+				result = dateTime.Value.EndOfWeek();
 			}
 			return result;
 		}

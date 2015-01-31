@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +10,34 @@ namespace Sql.Net.Common
 {
 	public static class DateTimeExtensions
 	{
+		private static DayOfWeek FirstDayOfWeek()
+		{
+			DayOfWeek firstDayOfWeek = DayOfWeek.Monday;
+			string firstDayOfWeekSetting = null;
+
+			using (SqlConnection connection = new SqlConnection("context connection=true"))
+			{
+				connection.Open();
+				SqlCommand command = new SqlCommand("SELECT [Sql.Net].[Configuration.SettingGet] ('FirstDayOfWeek')", connection);
+
+				try
+				{
+					firstDayOfWeekSetting = (string)command.ExecuteScalar();
+				}
+				catch (SqlException ex)
+				{
+					// An error occurred executing the SQL command.
+				}
+			}
+
+			if (firstDayOfWeekSetting == null)
+			{
+				Enum.TryParse<DayOfWeek>(firstDayOfWeekSetting, out firstDayOfWeek);
+			}
+
+			return firstDayOfWeek;
+		}
+
 		public static bool IsWeekendDay(this DateTime value)
 		{
 			return value.DayOfWeek == DayOfWeek.Saturday || value.DayOfWeek == DayOfWeek.Sunday;
@@ -56,7 +86,7 @@ namespace Sql.Net.Common
 
 		public static DateTime BeginingOfWeek(this DateTime value)
 		{
-			return value.BeginingOfWeek(DayOfWeek.Monday);
+			return value.BeginingOfWeek(FirstDayOfWeek());
 		}
 
 		public static DateTime EndOfWeek(this DateTime value, DayOfWeek firstDayOfWeek)
@@ -66,7 +96,7 @@ namespace Sql.Net.Common
 
 		public static DateTime EndOfWeek(this DateTime value)
 		{
-			return value.EndOfWeek(DayOfWeek.Monday);
+			return value.EndOfWeek(FirstDayOfWeek());
 		}
 
 		public static bool IsToday(this DateTime value)
