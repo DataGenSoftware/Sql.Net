@@ -10,11 +10,71 @@ EXEC sp_executesql @query
 GO
 
 CREATE ASSEMBLY [Sql.Net]
-FROM 'C:\DataGen\Sql.Net\Sql.Net\Sql.Net\bin\Release\Sql.Net.dll'
+FROM 'D:\DataGen\Sql.Net\Sql.Net\Sql.Net\bin\Release\Sql.Net.dll'
 WITH PERMISSION_SET = UNSAFE 
 GO
 
 CREATE SCHEMA [Sql.Net]
+GO
+
+CREATE TABLE [Sql.Net].[Configuration.Settings]
+(
+	[Name] [nvarchar](255) NOT NULL,
+	[Value] [nvarchar](max) NOT NULL,
+	CONSTRAINT [PK_Settings] PRIMARY KEY CLUSTERED 
+	(
+		[Name] ASC
+	)
+)
+GO
+CREATE PROCEDURE [Sql.Net].[Configuration.SettingsClear] AS
+BEGIN
+	TRUNCATE TABLE [Sql.Net].[Configuration.Settings]
+END
+GO
+CREATE PROCEDURE [Sql.Net].[Configuration.SettingSet] @name nvarchar(255), @value nvarchar(max) AS
+BEGIN
+	INSERT INTO [Sql.Net].[Configuration.Settings] ([Name], [Value]) VALUES (@name, @value)
+END
+GO
+CREATE PROCEDURE [Sql.Net].[Configuration.SettingUnset] @name nvarchar(255) AS
+BEGIN
+	DELETE FROM [Sql.Net].[Configuration.Settings] WHERE [Name] = @name
+END
+GO
+CREATE FUNCTION [Sql.Net].[Configuration.SettingGet] (@name nvarchar(255))
+RETURNS nvarchar(max)
+AS
+BEGIN
+	RETURN 
+		(SELECT [Value] from [Sql.Net].[Configuration.Settings] WHERE [Name] = @name)
+END
+GO
+CREATE TABLE [Sql.Net].[Configuration.Holidays]
+(
+	[Date] [datetime] NOT NULL,
+	CONSTRAINT [PK_Holidays] PRIMARY KEY CLUSTERED 
+	(
+		[Date] ASC
+	)
+)
+GO
+CREATE PROCEDURE [Sql.Net].[Configuration.HolidaysClear] AS
+BEGIN
+	TRUNCATE TABLE [Sql.Net].[Configuration.Holidays]
+END
+GO
+CREATE PROCEDURE [Sql.Net].[Configuration.HolidayAdd] @date datetime AS
+BEGIN
+	SET @date = [Sql.Net].[Types.DateTime.Date](@date)
+	INSERT INTO [Sql.Net].[Configuration.Holidays] ([Date]) VALUES (@date)
+END
+GO
+CREATE PROCEDURE [Sql.Net].[Configuration.HolidayRemove] @date datetime AS
+BEGIN
+	SET @date = [Sql.Net].[Types.DateTime.Date](@date)
+	DELETE FROM [Sql.Net].[Configuration.Holidays] WHERE [Date] = @date
+END
 GO
 
 CREATE AGGREGATE [Sql.Net].[Aggregate.Join] (@value nvarchar(max), @delimiter nvarchar(max)) RETURNS nvarchar(max)
@@ -133,38 +193,12 @@ GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek](@dateTime datetime) RETURNS datetime
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateEndOfWeek
 GO
-CREATE TABLE [Sql.Net].[Holidays]
-(
-	[Date] [datetime] NOT NULL,
-	CONSTRAINT [PK_Holidays] PRIMARY KEY CLUSTERED 
-	(
-		[Date] ASC
-	)
-)
-GO
-CREATE PROCEDURE [Sql.Net].[HolidaysClear] AS
-BEGIN
-	TRUNCATE TABLE [Sql.Net].[Holidays]
-END
-GO
-CREATE PROCEDURE [Sql.Net].[HolidayAdd] @date datetime AS
-BEGIN
-	SET @date = [Sql.Net].[Types.DateTime.Date](@date)
-	INSERT INTO [Sql.Net].[Holidays] ([Date]) VALUES (@date)
-END
-GO
-CREATE PROCEDURE [Sql.Net].[HolidayRemove] @date datetime AS
-BEGIN
-	SET @date = [Sql.Net].[Types.DateTime.Date](@date)
-	DELETE FROM [Sql.Net].[Holidays] WHERE [Date] = @date
-END
-GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.IsHoliday](@dateTime datetime) RETURNS BIT AS
 BEGIN
 	SET @dateTime = [Sql.Net].[Types.DateTime.Date](@dateTime)
 	RETURN 
 		(SELECT CONVERT(BIT, COUNT([Date])) 
-			FROM [Sql.Net].[Holidays] 
+			FROM [Sql.Net].[Configuration.Holidays] 
 			WHERE [Date] =  @dateTime)
 END
 GO

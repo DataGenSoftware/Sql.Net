@@ -1,5 +1,24 @@
 --UNINSTALL
 
+DROP PROCEDURE [Sql.Net].[Configuration.SettingsClear]
+GO
+DROP PROCEDURE [Sql.Net].[Configuration.SettingSet]
+GO
+DROP PROCEDURE [Sql.Net].[Configuration.SettingUnset]
+GO
+DROP FUNCTION [Sql.Net].[Configuration.SettingGet]
+GO
+DROP TABLE [Sql.Net].[Configuration.Settings]
+GO
+DROP PROCEDURE [Sql.Net].[Configuration.HolidaysClear]
+GO
+DROP PROCEDURE [Sql.Net].[Configuration.HolidayAdd]
+GO
+DROP PROCEDURE [Sql.Net].[Configuration.HolidayRemove]
+GO
+DROP TABLE [Sql.Net].[Configuration.Holidays]
+GO
+
 DROP AGGREGATE [Sql.Net].[Aggregate.Join]
 GO
 DROP SYNONyM [dbo].[join]
@@ -81,14 +100,6 @@ GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.IsHoliday]
-GO
-DROP PROCEDURE [Sql.Net].[Types.DateTime.HolidaysClear]
-GO
-DROP PROCEDURE [Sql.Net].[Types.DateTime.HolidayAdd]
-GO
-DROP PROCEDURE [Sql.Net].[Types.DateTime.HolidayRemove]
-GO
-DROP TABLE [Sql.Net].[Types.DateTime.Holidays]
 GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
