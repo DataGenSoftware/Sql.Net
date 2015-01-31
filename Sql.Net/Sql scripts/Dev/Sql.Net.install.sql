@@ -50,6 +50,8 @@ BEGIN
 		(SELECT [Value] from [Sql.Net].[Configuration.Settings] WHERE [Name] = @name)
 END
 GO
+EXECUTE [Sql.Net].[Configuration.SettingSet] 'FirstDayOfWeek', 'Monday'
+GO
 CREATE TABLE [Sql.Net].[Configuration.Holidays]
 (
 	[Date] [datetime] NOT NULL,

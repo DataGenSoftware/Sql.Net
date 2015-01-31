@@ -180,7 +180,7 @@ namespace Sql.Net.Types
 			return result;
 		}
 
-		[SqlFunction()]
+		[SqlFunction(DataAccess = DataAccessKind.Read, SystemDataAccess = SystemDataAccessKind.Read)]
 		public static DateTime? DateBeginingOfWeek(DateTime? dateTime)
 		{
 			DateTime? result = null;
@@ -191,7 +191,7 @@ namespace Sql.Net.Types
 			return result;
 		}
 
-		[SqlFunction()]
+		[SqlFunction(DataAccess = DataAccessKind.Read, SystemDataAccess = SystemDataAccessKind.Read)]
 		public static DateTime? DateEndOfWeek(DateTime? dateTime)
 		{
 			DateTime? result = null;

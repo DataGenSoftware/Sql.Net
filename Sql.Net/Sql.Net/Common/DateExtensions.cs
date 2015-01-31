@@ -26,11 +26,11 @@ namespace Sql.Net.Common
 				}
 				catch (SqlException ex)
 				{
-					// An error occurred executing the SQL command.
+					//throw;
 				}
 			}
 
-			if (firstDayOfWeekSetting == null)
+			if (firstDayOfWeekSetting != null)
 			{
 				Enum.TryParse<DayOfWeek>(firstDayOfWeekSetting, out firstDayOfWeek);
 			}
@@ -80,7 +80,7 @@ namespace Sql.Net.Common
 
 		public static DateTime BeginingOfWeek(this DateTime value, DayOfWeek firstDayOfWeek)
 		{
-			int daysOffset = value.DayOfWeek - firstDayOfWeek;
+			int daysOffset = firstDayOfWeek - value.DayOfWeek;
 			return value.AddDays(daysOffset).Date;
 		}
 
