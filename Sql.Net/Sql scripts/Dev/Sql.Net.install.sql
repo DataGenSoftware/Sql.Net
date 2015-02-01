@@ -51,6 +51,7 @@ BEGIN
 END
 GO
 EXECUTE [Sql.Net].[Configuration.SettingSet] 'FirstDayOfWeek', 'Monday'
+EXECUTE [Sql.Net].[Configuration.SettingSet] 'WeekendDays', 'Saturday|Sunday'
 GO
 CREATE TABLE [Sql.Net].[Configuration.Holidays]
 (

@@ -15,20 +15,7 @@ namespace Sql.Net.Common
 			DayOfWeek firstDayOfWeek = DayOfWeek.Monday;
 			string firstDayOfWeekSetting = null;
 
-			using (SqlConnection connection = new SqlConnection("context connection=true"))
-			{
-				connection.Open();
-				SqlCommand command = new SqlCommand("SELECT [Sql.Net].[Configuration.SettingGet] ('FirstDayOfWeek')", connection);
-
-				try
-				{
-					firstDayOfWeekSetting = (string)command.ExecuteScalar();
-				}
-				catch (SqlException ex)
-				{
-					//throw;
-				}
-			}
+			firstDayOfWeekSetting = SettingGet("FirstDayOfWeek");
 
 			if (firstDayOfWeekSetting != null)
 			{
@@ -38,9 +25,64 @@ namespace Sql.Net.Common
 			return firstDayOfWeek;
 		}
 
+		private static IEnumerable<DayOfWeek> WeekendDays()
+		{
+			List<DayOfWeek> weekendDays = new List<DayOfWeek>();
+			string weekendDaysSetting = null;
+
+			weekendDaysSetting = SettingGet("WeekendDays");
+
+			if (weekendDaysSetting != null)
+			{
+				foreach (string weekendDaySetting in weekendDaysSetting.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries))
+				{
+					DayOfWeek weekendDay;
+					if (Enum.TryParse<DayOfWeek>(weekendDaySetting, out weekendDay))
+					{
+						weekendDays.Add(weekendDay);
+					}
+				}
+			}
+			else
+			{
+				weekendDays.AddRange
+				(
+					new DayOfWeek[]
+					{
+						DayOfWeek.Saturday,
+						DayOfWeek.Sunday,
+					}
+				);
+			}
+
+			return weekendDays;
+		}
+
+		private static string SettingGet(string settingName)
+		{
+			string settingValue = null;
+
+			using (SqlConnection connection = new SqlConnection("context connection=true"))
+			{
+				connection.Open();
+				SqlCommand command = new SqlCommand(string.Format("SELECT [Sql.Net].[Configuration.SettingGet] ('{0}')", settingName), connection);
+
+				try
+				{
+					settingValue = (string)command.ExecuteScalar();
+				}
+				catch (SqlException ex)
+				{
+					//throw;
+				}
+			}
+
+			return settingValue;
+		}
+
 		public static bool IsWeekendDay(this DateTime value)
 		{
-			return value.DayOfWeek == DayOfWeek.Saturday || value.DayOfWeek == DayOfWeek.Sunday;
+			return WeekendDays().Contains(value.DayOfWeek);
 		}
 
 		public static bool IsWeekDay(this DateTime value)
