@@ -101,6 +101,8 @@ DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.IsHoliday]
 GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.DaysBetweenDates]
+GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
 GO

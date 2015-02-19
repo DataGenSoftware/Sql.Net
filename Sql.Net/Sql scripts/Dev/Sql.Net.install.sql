@@ -205,6 +205,24 @@ BEGIN
 			WHERE [Date] =  @dateTime)
 END
 GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.DaysBetweenDates](@startDate DATETIME, @endDate DATETIME)
+RETURNS @dates TABLE
+(
+	[Date] DATETIME
+)
+as
+BEGIN
+
+	WHILE @startDate < @endDate
+	BEGIN
+		INSERT INTO @dates ([Date]) VALUES (@startDate)
+		SET @startDate = DATEADD(d, 1, @startDate)
+	END
+
+	RETURN
+
+END
+GO
 
 CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal, @format nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalToString
