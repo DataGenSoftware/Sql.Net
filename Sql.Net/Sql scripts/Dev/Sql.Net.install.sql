@@ -85,6 +85,11 @@ EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Join]
 GO
 CREATE SYNONYM [dbo].[join] FOR [Sql.Net].[Aggregate.Join]
 GO
+CREATE AGGREGATE [Sql.Net].[Aggregate.Median] (@value decimal(18, 4)) RETURNS decimal(18, 4)
+EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Median]
+GO
+CREATE SYNONYM [dbo].[median] FOR [Sql.Net].[Aggregate.Median]
+GO
 CREATE AGGREGATE [Sql.Net].[Aggregate.Mode] (@value sql_variant) RETURNS sql_variant
 EXTERNAL NAME [Sql.Net].[Sql.Net.Aggregates.Mode]
 GO
@@ -224,10 +229,10 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal, @format nvarchar(max)) RETURNS nvarchar(max)
+CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal(18, 4), @format nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalToString
 GO
-CREATE FUNCTION [Sql.Net].[Types.Decimal.TryParse](@value nvarchar(max)) RETURNS decimal
+CREATE FUNCTION [Sql.Net].[Types.Decimal.TryParse](@value nvarchar(max)) RETURNS decimal(18, 4)
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DecimalType].DecimalTryParse
 GO
 

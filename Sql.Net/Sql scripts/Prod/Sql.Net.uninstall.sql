@@ -23,6 +23,10 @@ DROP AGGREGATE [Sql.Net].[Aggregate.Join]
 GO
 DROP SYNONyM [dbo].[join]
 GO
+DROP AGGREGATE [Sql.Net].[Aggregate.Median]
+GO
+DROP SYNONyM [dbo].[median]
+GO
 DROP AGGREGATE [Sql.Net].[Aggregate.Mode]
 GO
 DROP SYNONyM [dbo].[mode]
