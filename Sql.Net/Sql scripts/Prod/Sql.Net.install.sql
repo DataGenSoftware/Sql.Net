@@ -34,7 +34,13 @@ END
 GO
 CREATE PROCEDURE [Sql.Net].[Configuration.SettingSet] @name nvarchar(255), @value nvarchar(max) AS
 BEGIN
-	INSERT INTO [Sql.Net].[Configuration.Settings] ([Name], [Value]) VALUES (@name, @value)
+    MERGE [Sql.Net].[Configuration.Settings] AS target
+    USING (SELECT @name, @value) AS source ([Name], [Value])
+    ON (target.[Name] = source.[Name])
+    WHEN MATCHED THEN 
+		UPDATE SET [Value] = source.[Value]
+	WHEN NOT MATCHED THEN
+		INSERT ([Name], [Value]) VALUES (source.[Name], source.[Value]);
 END
 GO
 CREATE PROCEDURE [Sql.Net].[Configuration.SettingUnset] @name nvarchar(255) AS
