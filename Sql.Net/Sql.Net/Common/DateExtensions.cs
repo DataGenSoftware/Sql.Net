@@ -150,5 +150,10 @@ namespace Sql.Net.Common
 		{
 			return value.AddDays(7 * count);
 		}
+
+		public static DateTime BeginingOfYear(this DateTime value)
+		{
+			return new DateTime(value.Year, 1, 1);
+		}
 	}
 }

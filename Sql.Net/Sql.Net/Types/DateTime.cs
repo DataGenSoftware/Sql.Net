@@ -200,5 +200,16 @@ namespace Sql.Net.Types
 			}
 			return result;
 		}
+
+		[SqlFunction()]
+		public static DateTime? DateBeginingOfYear(DateTime? dateTime)
+		{
+			DateTime? result = null;
+			if (dateTime.HasValue == true)
+			{
+				result = dateTime.Value.BeginingOfWeek();
+			}
+			return result;
+		}
 	}
 }
