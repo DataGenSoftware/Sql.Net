@@ -227,7 +227,7 @@ RETURNS @dates TABLE
 (
 	[Date] DATETIME
 )
-as
+AS
 BEGIN
 
 	WHILE @startDate < @endDate
@@ -239,6 +239,15 @@ BEGIN
 	RETURN
 
 END
+GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.QuarterNumberOfyear](@dateTime datetime)
+RETURNS INT
+AS
+BEGIN
+	RETURN DATEPART(quarter, @dateTime)
+END
+GO
+CREATE SYNONYM [dbo].[quarter] FOR [Sql.Net].[Types.DateTime.QuarterNumberOfyear]
 GO
 
 CREATE FUNCTION [Sql.Net].[Types.Decimal.ToString](@value decimal(18, 4), @format nvarchar(max)) RETURNS nvarchar(max)

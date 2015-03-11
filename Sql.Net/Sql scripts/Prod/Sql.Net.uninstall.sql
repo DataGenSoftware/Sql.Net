@@ -21,15 +21,15 @@ GO
 
 DROP AGGREGATE [Sql.Net].[Aggregate.Join]
 GO
-DROP SYNONyM [dbo].[join]
+DROP SYNONYM [dbo].[join]
 GO
 DROP AGGREGATE [Sql.Net].[Aggregate.Median]
 GO
-DROP SYNONyM [dbo].[median]
+DROP SYNONYM [dbo].[median]
 GO
 DROP AGGREGATE [Sql.Net].[Aggregate.Mode]
 GO
-DROP SYNONyM [dbo].[mode]
+DROP SYNONYM [dbo].[mode]
 GO
 
 DROP FUNCTION [Sql.Net].[Math.Const.Pi]
@@ -110,6 +110,8 @@ GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.IsHoliday]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.DaysBetweenDates]
+GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.QuarterNumberOfyear]
 GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
