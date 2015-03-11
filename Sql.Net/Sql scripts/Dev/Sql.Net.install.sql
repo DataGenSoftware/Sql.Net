@@ -207,6 +207,9 @@ GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek](@dateTime datetime) RETURNS datetime
 AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateEndOfWeek
 GO
+CREATE FUNCTION [Sql.Net].[Types.DateTime.BeginingOfYear](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [Sql.Net].[Sql.Net.Types.DateTimeType].DateBeginingOfYear
+GO
 CREATE FUNCTION [Sql.Net].[Types.DateTime.IsHoliday](@dateTime datetime) RETURNS BIT AS
 BEGIN
 	SET @dateTime = [Sql.Net].[Types.DateTime.Date](@dateTime)

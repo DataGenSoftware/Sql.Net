@@ -103,6 +103,8 @@ DROP FUNCTION [Sql.Net].[Types.DateTime.BeginingOfWeek]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.EndOfWeek]
 GO
+DROP FUNCTION [Sql.Net].[Types.DateTime.BeginingOfYear]
+GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.IsHoliday]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.DaysBetweenDates]
