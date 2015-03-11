@@ -155,5 +155,10 @@ namespace Sql.Net.Common
 		{
 			return new DateTime(value.Year, 1, 1);
 		}
+
+		public static DateTime EndOfYear(this DateTime value)
+		{
+			return value.BeginingOfYear().AddYears(1).AddTicks(-1);
+		}
 	}
 }
