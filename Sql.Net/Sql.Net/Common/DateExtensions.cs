@@ -64,7 +64,9 @@ namespace Sql.Net.Common
 			using (SqlConnection connection = new SqlConnection("context connection=true"))
 			{
 				connection.Open();
-				SqlCommand command = new SqlCommand(string.Format("SELECT [Sql.Net].[Configuration.SettingGet] ('{0}')", settingName), connection);
+				SqlCommand command = new SqlCommand(string.Format("SELECT [Sql.Net].[Configuration.SettingGet] (@settingName)"), connection);
+				SqlParameter settingNameParameter =  new SqlParameter("@settingName", settingName);
+				command.Parameters.Add(settingNameParameter);
 
 				try
 				{
