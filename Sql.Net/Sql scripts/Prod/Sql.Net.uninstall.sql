@@ -113,6 +113,8 @@ DROP FUNCTION [Sql.Net].[Types.DateTime.DaysBetweenDates]
 GO
 DROP FUNCTION [Sql.Net].[Types.DateTime.QuarterNumberOfyear]
 GO
+DROP SYNONYM [dbo].[quarter]
+GO
 
 DROP FUNCTION [Sql.Net].[Types.Decimal.ToString]
 GO

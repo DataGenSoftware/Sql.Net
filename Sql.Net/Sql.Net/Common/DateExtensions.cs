@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Sql.Net.Common
 {
@@ -19,7 +18,7 @@ namespace Sql.Net.Common
 
 			if (firstDayOfWeekSetting != null)
 			{
-				Enum.TryParse<DayOfWeek>(firstDayOfWeekSetting, out firstDayOfWeek);
+				EnumExtensions.TryParse<DayOfWeek>(firstDayOfWeekSetting, firstDayOfWeek, out firstDayOfWeek);
 			}
 
 			return firstDayOfWeek;
@@ -36,10 +35,10 @@ namespace Sql.Net.Common
 			{
 				foreach (string weekendDaySetting in weekendDaysSetting.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries))
 				{
-					DayOfWeek weekendDay;
-					if (Enum.TryParse<DayOfWeek>(weekendDaySetting, out weekendDay))
+					DayOfWeek? weekendDay = EnumExtensions.TryParse<DayOfWeek>(weekendDaySetting);
+					if (weekendDay.HasValue)
 					{
-						weekendDays.Add(weekendDay);
+						weekendDays.Add(weekendDay.Value);
 					}
 				}
 			}
