@@ -41,7 +41,7 @@ namespace Sql.Net.Aggregates
 			if (this.items.Count != 0)
 			{
 				decimal result;
-				this.items = this.items.OrderBy(x => x).ToList();
+				this.items = this.items.OrderBy(this.OrderBy).ToList();
 
 				if (this.items.Count % 2 == 0)
 				{
@@ -58,6 +58,11 @@ namespace Sql.Net.Aggregates
 			{
 				return new SqlDecimal();
 			}
+		}
+
+		private decimal OrderBy(decimal x)
+		{
+			return x;
 		}
 
 		void IBinarySerialize.Read(BinaryReader reader)

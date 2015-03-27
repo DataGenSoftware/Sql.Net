@@ -5,7 +5,6 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Collections.Concurrent;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using Sql.Net.Common;
@@ -16,41 +15,52 @@ namespace Sql.Net.Aggregates
 	[SqlUserDefinedAggregate(Format.UserDefined, IsInvariantToOrder = true, IsInvariantToNulls = true, IsInvariantToDuplicates = false, MaxByteSize = -1)]
 	public struct Mode : IBinarySerialize
 	{
-		private ConcurrentDictionary<object, int> result;
+		private Dictionary<object, int> result;
 
 		public void Init()
 		{
-			this.result = new ConcurrentDictionary<object, int>();
+			this.result = new Dictionary<object, int>();
 		}
 
 		public void Accumulate(object value)
 		{
 			if (value != null)
 			{
-				if (this.result.ContainsKey(value) || !this.result.TryAdd(value, 1))
+				if (this.result.ContainsKey(value))
 				{
 					this.result[value]++;
+				}
+				else
+				{
+					this.result.Add(value, 1);
 				}
 			}
 		}
 
 		public void Merge(Mode value)
 		{
-			foreach(var valueResult in value.result)
+			foreach (var valueResult in value.result)
 			{
-				if (this.result.ContainsKey(valueResult.Key) || !this.result.TryAdd(valueResult.Key, valueResult.Value))
+				if (this.result.ContainsKey(valueResult.Key))
 				{
 					this.result[valueResult.Key] += valueResult.Value;
 				}
+				else
+				{
+					this.result.Add(valueResult.Key, valueResult.Value);
+				}
 			}
 		}
+
+		private int ModeValue { get;set;}
 
 		public object Terminate()
 		{
 			if (this.result != null && this.result.Count > 0)
 			{
-				var modeValue = this.result.OrderByDescending(item => item.Value).First().Value;
-				var modeFirstKey = this.result.Where(item => item.Value == modeValue).OrderBy(item => item.Key).First().Key;
+				this.ModeValue = this.result.OrderByDescending(this.OrderByValue).First().Value;
+				var modeFirstKey = this.result.Where(FilterModeValue).OrderBy(this.OrderByKey).First().Key;
+
 				return modeFirstKey;
 			}
 			else
@@ -59,9 +69,24 @@ namespace Sql.Net.Aggregates
 			}
 		}
 
+		private int OrderByValue(KeyValuePair<object, int> item)
+		{
+			return item.Value;
+		}
+
+		private object OrderByKey(KeyValuePair<object, int> item)
+		{
+			return item.Key;
+		}
+
+		private bool FilterModeValue(KeyValuePair<object, int> item)
+		{
+			return item.Value == this.ModeValue;
+		}
+
 		void IBinarySerialize.Read(BinaryReader reader)
 		{
-			this.result = (ConcurrentDictionary<object, int>)Serializator.Deserialize(reader.ReadString());
+			this.result = (Dictionary<object, int>)Serializator.Deserialize(reader.ReadString());
 		}
 
 		void IBinarySerialize.Write(BinaryWriter writer)

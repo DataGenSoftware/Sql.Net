@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Sql.Net.Common
 {
@@ -19,7 +18,7 @@ namespace Sql.Net.Common
 
 			if (firstDayOfWeekSetting != null)
 			{
-				Enum.TryParse<DayOfWeek>(firstDayOfWeekSetting, out firstDayOfWeek);
+				EnumExtensions.TryParse<DayOfWeek>(firstDayOfWeekSetting, firstDayOfWeek, out firstDayOfWeek);
 			}
 
 			return firstDayOfWeek;
@@ -36,10 +35,10 @@ namespace Sql.Net.Common
 			{
 				foreach (string weekendDaySetting in weekendDaysSetting.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries))
 				{
-					DayOfWeek weekendDay;
-					if (Enum.TryParse<DayOfWeek>(weekendDaySetting, out weekendDay))
+					DayOfWeek? weekendDay = EnumExtensions.TryParse<DayOfWeek>(weekendDaySetting);
+					if (weekendDay.HasValue)
 					{
-						weekendDays.Add(weekendDay);
+						weekendDays.Add(weekendDay.Value);
 					}
 				}
 			}
@@ -65,7 +64,9 @@ namespace Sql.Net.Common
 			using (SqlConnection connection = new SqlConnection("context connection=true"))
 			{
 				connection.Open();
-				SqlCommand command = new SqlCommand(string.Format("SELECT [Sql.Net].[Configuration.SettingGet] ('{0}')", settingName), connection);
+				SqlCommand command = new SqlCommand(string.Format("SELECT [Sql.Net].[Configuration.SettingGet] (@settingName)"), connection);
+				SqlParameter settingNameParameter =  new SqlParameter("@settingName", settingName);
+				command.Parameters.Add(settingNameParameter);
 
 				try
 				{
@@ -149,6 +150,16 @@ namespace Sql.Net.Common
 		public static DateTime AddWeeks(this DateTime value, int count)
 		{
 			return value.AddDays(7 * count);
+		}
+
+		public static DateTime BeginingOfYear(this DateTime value)
+		{
+			return new DateTime(value.Year, 1, 1);
+		}
+
+		public static DateTime EndOfYear(this DateTime value)
+		{
+			return value.BeginingOfYear().AddYears(1).AddTicks(-1);
 		}
 	}
 }
