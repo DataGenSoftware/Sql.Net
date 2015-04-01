@@ -1,185 +1,185 @@
 --UNINSTALL
 
-DROP PROCEDURE [Sql.Net].[Configuration.SettingsClear]
+DROP PROCEDURE [SqlNet].[ConfigurationSettingsClear]
 GO
-DROP PROCEDURE [Sql.Net].[Configuration.SettingSet]
+DROP PROCEDURE [SqlNet].[ConfigurationSettingSet]
 GO
-DROP PROCEDURE [Sql.Net].[Configuration.SettingUnset]
+DROP PROCEDURE [SqlNet].[ConfigurationSettingUnset]
 GO
-DROP FUNCTION [Sql.Net].[Configuration.SettingGet]
+DROP FUNCTION [SqlNet].[ConfigurationSettingGet]
 GO
-DROP TABLE [Sql.Net].[Configuration.Settings]
+DROP TABLE [SqlNet].[ConfigurationSettings]
 GO
-DROP PROCEDURE [Sql.Net].[Configuration.HolidaysClear]
+DROP PROCEDURE [SqlNet].[ConfigurationHolidaysClear]
 GO
-DROP PROCEDURE [Sql.Net].[Configuration.HolidayAdd]
+DROP PROCEDURE [SqlNet].[ConfigurationHolidayAdd]
 GO
-DROP PROCEDURE [Sql.Net].[Configuration.HolidayRemove]
+DROP PROCEDURE [SqlNet].[ConfigurationHolidayRemove]
 GO
-DROP TABLE [Sql.Net].[Configuration.Holidays]
-GO
-
-DROP AGGREGATE [Sql.Net].[Aggregate.Join]
-GO
-DROP SYNONYM [dbo].[join]
-GO
-DROP AGGREGATE [Sql.Net].[Aggregate.Median]
-GO
-DROP SYNONYM [dbo].[median]
-GO
-DROP AGGREGATE [Sql.Net].[Aggregate.Mode]
-GO
-DROP SYNONYM [dbo].[mode]
+DROP TABLE [SqlNet].[ConfigurationHolidays]
 GO
 
-DROP FUNCTION [Sql.Net].[Math.Pi]
+DROP AGGREGATE [SqlNet].[AggregateJoin]
 GO
-DROP FUNCTION [Sql.Net].[Math.E]
+DROP SYNONYM [SqlNet].[Join]
 GO
-
-DROP FUNCTION [Sql.Net].[Bool.ToString]
+DROP AGGREGATE [SqlNet].[AggregateMedian]
 GO
-DROP FUNCTION [Sql.Net].[Bool.FalseString]
+DROP SYNONYM [SqlNet].[Median]
 GO
-DROP FUNCTION [Sql.Net].[Bool.TrueString]
+DROP AGGREGATE [SqlNet].[AggregateMode]
 GO
-DROP FUNCTION [Sql.Net].[Bool.TryParse]
-GO
-
-DROP FUNCTION [Sql.Net].[Char.IsControl]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsDigit]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsLetter]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsLetterOrDigit]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsLower]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsNumber]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsPunctuation]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsSeparator]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsSymbol]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsUpper]
-GO
-DROP FUNCTION [Sql.Net].[Char.IsWhiteSpace]
+DROP SYNONYM [SqlNet].[Mode]
 GO
 
-DROP FUNCTION [Sql.Net].[DateTime.ToString]
+DROP FUNCTION [SqlNet].[MathPi]
 GO
-DROP FUNCTION [Sql.Net].[DateTime.DaysInMonth]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.DaysInYear]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.IsLeapYear]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.Date]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.TimeOfDay]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.IsWeekendDay]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.IsWeekDay]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.IsToday]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.BeginingOfDay]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.EndOfDay]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.BeginingOfMonth]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.EndOfMonth]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.FirstDayOfMonth]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.LastDayOfMonth]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.BeginingOfWeek]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.EndOfWeek]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.BeginingOfYear]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.EndOfYear]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.IsHoliday]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.DaysBetweenDates]
-GO
-DROP FUNCTION [Sql.Net].[DateTime.QuarterNumberOfyear]
-GO
-DROP SYNONYM [dbo].[quarter]
+DROP FUNCTION [SqlNet].[MathE]
 GO
 
-DROP FUNCTION [Sql.Net].[Decimal.ToString]
+DROP FUNCTION [SqlNet].[BoolToString]
 GO
-DROP FUNCTION [Sql.Net].[Decimal.TryParse]
+DROP FUNCTION [SqlNet].[BoolFalseString]
 GO
-
-DROP FUNCTION [Sql.Net].[Double.ToString]
+DROP FUNCTION [SqlNet].[BoolTrueString]
 GO
-DROP FUNCTION [Sql.Net].[Double.TryParse]
-GO
-
-DROP FUNCTION [Sql.Net].[Int.ToString]
-GO
-DROP FUNCTION [Sql.Net].[Int.TryParse]
-GO
-DROP FUNCTION [Sql.Net].[Int.MinValue]
-GO
-DROP FUNCTION [Sql.Net].[Int.MaxValue]
-GO
-DROP FUNCTION [Sql.Net].[Int.ToWordsPL]
+DROP FUNCTION [SqlNet].[BoolTryParse]
 GO
 
-DROP FUNCTION [Sql.Net].[Single.ToString]
+DROP FUNCTION [SqlNet].[CharIsControl]
 GO
-DROP FUNCTION [Sql.Net].[Single.TryParse]
+DROP FUNCTION [SqlNet].[CharIsDigit]
 GO
-
-DROP FUNCTION [Sql.Net].[String.Contains]
+DROP FUNCTION [SqlNet].[CharIsLetter]
 GO
-DROP FUNCTION [Sql.Net].[String.EndsWith]
+DROP FUNCTION [SqlNet].[CharIsLetterOrDigit]
 GO
-DROP FUNCTION [Sql.Net].[String.StartsWith]
+DROP FUNCTION [SqlNet].[CharIsLower]
 GO
-DROP FUNCTION [Sql.Net].[String.IndexOf]
+DROP FUNCTION [SqlNet].[CharIsNumber]
 GO
-DROP FUNCTION [Sql.Net].[String.LastIndexOf]
+DROP FUNCTION [SqlNet].[CharIsPunctuation]
 GO
-DROP FUNCTION [Sql.Net].[String.Insert]
+DROP FUNCTION [SqlNet].[CharIsSeparator]
 GO
-DROP FUNCTION [Sql.Net].[String.PadLeft]
+DROP FUNCTION [SqlNet].[CharIsSymbol]
 GO
-DROP FUNCTION [Sql.Net].[String.PadRight]
+DROP FUNCTION [SqlNet].[CharIsUpper]
 GO
-DROP FUNCTION [Sql.Net].[String.Split]
-GO
-DROP FUNCTION [Sql.Net].[String.TextGetBetweenTexts]
-GO
-DROP FUNCTION [Sql.Net].[String.TripleDESEncrypt]
-GO
-DROP FUNCTION [Sql.Net].[String.TripleDESDecrypt]
-GO
-DROP FUNCTION [Sql.Net].[String.MD5ComputeHash]
-GO
-DROP FUNCTION [Sql.Net].[String.MD5VerifyHash]
-GO
-DROP FUNCTION [Sql.Net].[String.SHA1ComputeHash]
-GO
-DROP FUNCTION [Sql.Net].[String.SHA1VerifyHash]
+DROP FUNCTION [SqlNet].[CharIsWhiteSpace]
 GO
 
-DROP FUNCTION [Sql.Net].[System.EnvironmentVariableGet]
+DROP FUNCTION [SqlNet].[DateTimeToString]
+GO
+DROP FUNCTION [SqlNet].[DateTimeDaysInMonth]
+GO
+DROP FUNCTION [SqlNet].[DateTimeDaysInYear]
+GO
+DROP FUNCTION [SqlNet].[DateTimeIsLeapYear]
+GO
+DROP FUNCTION [SqlNet].[DateTimeDate]
+GO
+DROP FUNCTION [SqlNet].[DateTimeTimeOfDay]
+GO
+DROP FUNCTION [SqlNet].[DateTimeIsWeekendDay]
+GO
+DROP FUNCTION [SqlNet].[DateTimeIsWeekDay]
+GO
+DROP FUNCTION [SqlNet].[DateTimeIsToday]
+GO
+DROP FUNCTION [SqlNet].[DateTimeBeginingOfDay]
+GO
+DROP FUNCTION [SqlNet].[DateTimeEndOfDay]
+GO
+DROP FUNCTION [SqlNet].[DateTimeBeginingOfMonth]
+GO
+DROP FUNCTION [SqlNet].[DateTimeEndOfMonth]
+GO
+DROP FUNCTION [SqlNet].[DateTimeFirstDayOfMonth]
+GO
+DROP FUNCTION [SqlNet].[DateTimeLastDayOfMonth]
+GO
+DROP FUNCTION [SqlNet].[DateTimeBeginingOfWeek]
+GO
+DROP FUNCTION [SqlNet].[DateTimeEndOfWeek]
+GO
+DROP FUNCTION [SqlNet].[DateTimeBeginingOfYear]
+GO
+DROP FUNCTION [SqlNet].[DateTimeEndOfYear]
+GO
+DROP FUNCTION [SqlNet].[DateTimeIsHoliday]
+GO
+DROP FUNCTION [SqlNet].[DateTimeDaysBetweenDates]
+GO
+DROP FUNCTION [SqlNet].[DateTimeQuarterNumberOfyear]
+GO
+DROP SYNONYM [SqlNet].[Quarter]
 GO
 
-DROP SCHEMA [Sql.Net]
+DROP FUNCTION [SqlNet].[DecimalToString]
+GO
+DROP FUNCTION [SqlNet].[DecimalTryParse]
 GO
 
-DROP ASSEMBLY [Sql.Net]
+DROP FUNCTION [SqlNet].[DoubleToString]
+GO
+DROP FUNCTION [SqlNet].[DoubleTryParse]
+GO
+
+DROP FUNCTION [SqlNet].[IntToString]
+GO
+DROP FUNCTION [SqlNet].[IntTryParse]
+GO
+DROP FUNCTION [SqlNet].[IntMinValue]
+GO
+DROP FUNCTION [SqlNet].[IntMaxValue]
+GO
+DROP FUNCTION [SqlNet].[IntToWordsPL]
+GO
+
+DROP FUNCTION [SqlNet].[SingleToString]
+GO
+DROP FUNCTION [SqlNet].[SingleTryParse]
+GO
+
+DROP FUNCTION [SqlNet].[StringContains]
+GO
+DROP FUNCTION [SqlNet].[StringEndsWith]
+GO
+DROP FUNCTION [SqlNet].[StringStartsWith]
+GO
+DROP FUNCTION [SqlNet].[StringIndexOf]
+GO
+DROP FUNCTION [SqlNet].[StringLastIndexOf]
+GO
+DROP FUNCTION [SqlNet].[StringInsert]
+GO
+DROP FUNCTION [SqlNet].[StringPadLeft]
+GO
+DROP FUNCTION [SqlNet].[StringPadRight]
+GO
+DROP FUNCTION [SqlNet].[StringSplit]
+GO
+DROP FUNCTION [SqlNet].[StringTextGetBetweenTexts]
+GO
+DROP FUNCTION [SqlNet].[StringTripleDESEncrypt]
+GO
+DROP FUNCTION [SqlNet].[StringTripleDESDecrypt]
+GO
+DROP FUNCTION [SqlNet].[StringMD5ComputeHash]
+GO
+DROP FUNCTION [SqlNet].[StringMD5VerifyHash]
+GO
+DROP FUNCTION [SqlNet].[StringSHA1ComputeHash]
+GO
+DROP FUNCTION [SqlNet].[StringSHA1VerifyHash]
+GO
+
+DROP FUNCTION [SqlNet].[SystemEnvironmentVariableGet]
+GO
+
+DROP SCHEMA [SqlNet]
+GO
+
+DROP ASSEMBLY [SqlNet]
 GO
