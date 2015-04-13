@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Sql.Net.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{7a6eaee3-4d05-4c23-a0d4-4aa63bcbf690}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Sql.Net.Database</RootNamespace>
+    <AssemblyName>Sql.Net.Database</AssemblyName>
+    <ModelCollation>1045,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Polish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="SqlNet\" />
+    <Folder Include="SqlNet\Tables\" />
+    <Folder Include="SqlNet\Functions\" />
+    <Folder Include="SqlNet\Stored Procedures\" />
+    <Folder Include="Assemblies\" />
+    <Folder Include="Security\" />
+    <Folder Include="SqlNet\Synonyms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="SqlNet\Tables\ConfigurationSettings.sql" />
+    <Build Include="SqlNet\Tables\ConfigurationHolidays.sql" />
+    <Build Include="SqlNet\Functions\ConfigurationSettingGet.sql" />
+    <Build Include="SqlNet\Functions\DateTimeIsHoliday.sql" />
+    <Build Include="SqlNet\Functions\DateTimeQuarterNumberOfyear.sql" />
+    <Build Include="SqlNet\Functions\SingleTryParse.sql" />
+    <Build Include="SqlNet\Functions\StringContains.sql" />
+    <Build Include="SqlNet\Functions\StringEndsWith.sql" />
+    <Build Include="SqlNet\Functions\StringStartsWith.sql" />
+    <Build Include="SqlNet\Functions\StringIndexOf.sql" />
+    <Build Include="SqlNet\Functions\StringLastIndexOf.sql" />
+    <Build Include="SqlNet\Functions\StringInsert.sql" />
+    <Build Include="SqlNet\Functions\StringPadLeft.sql" />
+    <Build Include="SqlNet\Functions\StringPadRight.sql" />
+    <Build Include="SqlNet\Functions\StringTextGetBetweenTexts.sql" />
+    <Build Include="SqlNet\Functions\StringTripleDESEncrypt.sql" />
+    <Build Include="SqlNet\Functions\StringTripleDESDecrypt.sql" />
+    <Build Include="SqlNet\Functions\StringMD5ComputeHash.sql" />
+    <Build Include="SqlNet\Functions\StringMD5VerifyHash.sql" />
+    <Build Include="SqlNet\Functions\StringSHA1ComputeHash.sql" />
+    <Build Include="SqlNet\Functions\StringSHA1VerifyHash.sql" />
+    <Build Include="SqlNet\Functions\SystemEnvironmentVariableGet.sql" />
+    <Build Include="SqlNet\Functions\MathPi.sql" />
+    <Build Include="SqlNet\Functions\MathE.sql" />
+    <Build Include="SqlNet\Functions\BoolToString.sql" />
+    <Build Include="SqlNet\Functions\BoolFalseString.sql" />
+    <Build Include="SqlNet\Functions\BoolTrueString.sql" />
+    <Build Include="SqlNet\Functions\BoolTryParse.sql" />
+    <Build Include="SqlNet\Functions\CharIsControl.sql" />
+    <Build Include="SqlNet\Functions\CharIsDigit.sql" />
+    <Build Include="SqlNet\Functions\CharIsLetter.sql" />
+    <Build Include="SqlNet\Functions\CharIsLetterOrDigit.sql" />
+    <Build Include="SqlNet\Functions\CharIsLower.sql" />
+    <Build Include="SqlNet\Functions\CharIsNumber.sql" />
+    <Build Include="SqlNet\Functions\CharIsPunctuation.sql" />
+    <Build Include="SqlNet\Functions\CharIsSeparator.sql" />
+    <Build Include="SqlNet\Functions\CharIsSymbol.sql" />
+    <Build Include="SqlNet\Functions\CharIsUpper.sql" />
+    <Build Include="SqlNet\Functions\CharIsWhiteSpace.sql" />
+    <Build Include="SqlNet\Functions\DateTimeToString.sql" />
+    <Build Include="SqlNet\Functions\DateTimeDaysInMonth.sql" />
+    <Build Include="SqlNet\Functions\DateTimeDaysInYear.sql" />
+    <Build Include="SqlNet\Functions\DateTimeIsLeapYear.sql" />
+    <Build Include="SqlNet\Functions\DateTimeDate.sql" />
+    <Build Include="SqlNet\Functions\DateTimeTimeOfDay.sql" />
+    <Build Include="SqlNet\Functions\DateTimeIsWeekendDay.sql" />
+    <Build Include="SqlNet\Functions\DateTimeIsWeekDay.sql" />
+    <Build Include="SqlNet\Functions\DateTimeIsToday.sql" />
+    <Build Include="SqlNet\Functions\DateTimeBeginingOfDay.sql" />
+    <Build Include="SqlNet\Functions\DateTimeEndOfDay.sql" />
+    <Build Include="SqlNet\Functions\DateTimeBeginingOfMonth.sql" />
+    <Build Include="SqlNet\Functions\DateTimeEndOfMonth.sql" />
+    <Build Include="SqlNet\Functions\DateTimeFirstDayOfMonth.sql" />
+    <Build Include="SqlNet\Functions\DateTimeLastDayOfMonth.sql" />
+    <Build Include="SqlNet\Functions\DateTimeBeginingOfWeek.sql" />
+    <Build Include="SqlNet\Functions\DateTimeEndOfWeek.sql" />
+    <Build Include="SqlNet\Functions\DateTimeBeginingOfYear.sql" />
+    <Build Include="SqlNet\Functions\DateTimeEndOfYear.sql" />
+    <Build Include="SqlNet\Functions\DecimalToString.sql" />
+    <Build Include="SqlNet\Functions\DecimalTryParse.sql" />
+    <Build Include="SqlNet\Functions\DoubleToString.sql" />
+    <Build Include="SqlNet\Functions\DoubleTryParse.sql" />
+    <Build Include="SqlNet\Functions\IntToString.sql" />
+    <Build Include="SqlNet\Functions\IntTryParse.sql" />
+    <Build Include="SqlNet\Functions\IntMinValue.sql" />
+    <Build Include="SqlNet\Functions\IntMaxValue.sql" />
+    <Build Include="SqlNet\Functions\IntToWordsPL.sql" />
+    <Build Include="SqlNet\Functions\SingleToString.sql" />
+    <Build Include="SqlNet\Functions\DateTimeDaysBetweenDates.sql" />
+    <Build Include="SqlNet\Functions\StringSplit.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationSettingsClear.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationSettingSet.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationSettingUnset.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationHolidaysClear.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationHolidayAdd.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationHolidayRemove.sql" />
+    <Build Include="SqlNet\Functions\AggregateJoin.sql" />
+    <Build Include="SqlNet\Functions\AggregateMedian.sql" />
+    <Build Include="SqlNet\Functions\AggregateMode.sql" />
+    <Build Include="Security\SqlNet.sql" />
+    <Build Include="SqlNet\Synonyms\Contains.sql" />
+    <Build Include="SqlNet\Synonyms\EndsWith.sql" />
+    <Build Include="SqlNet\Synonyms\StartsWith.sql" />
+    <Build Include="SqlNet\Synonyms\IndexOf.sql" />
+    <Build Include="SqlNet\Synonyms\LastIndexOf.sql" />
+    <Build Include="SqlNet\Synonyms\Insert.sql" />
+    <Build Include="SqlNet\Synonyms\PadLeft.sql" />
+    <Build Include="SqlNet\Synonyms\PadRight.sql" />
+    <Build Include="SqlNet\Synonyms\Split.sql" />
+    <Build Include="SqlNet\Synonyms\TextGetBetweenTexts.sql" />
+    <Build Include="SqlNet\Synonyms\TripleDESEncrypt.sql" />
+    <Build Include="SqlNet\Synonyms\TripleDESDecrypt.sql" />
+    <Build Include="SqlNet\Synonyms\Settings.sql" />
+    <Build Include="SqlNet\Synonyms\MD5ComputeHash.sql" />
+    <Build Include="SqlNet\Synonyms\SettingsClear.sql" />
+    <Build Include="SqlNet\Synonyms\MD5VerifyHash.sql" />
+    <Build Include="SqlNet\Synonyms\SettingSet.sql" />
+    <Build Include="SqlNet\Synonyms\SHA1ComputeHash.sql" />
+    <Build Include="SqlNet\Synonyms\SettingUnset.sql" />
+    <Build Include="SqlNet\Synonyms\SHA1VerifyHash.sql" />
+    <Build Include="SqlNet\Synonyms\SettingGet.sql" />
+    <Build Include="SqlNet\Synonyms\EnvironmentVariableGet.sql" />
+    <Build Include="SqlNet\Synonyms\Holidays.sql" />
+    <Build Include="SqlNet\Synonyms\HolidaysClear.sql" />
+    <Build Include="SqlNet\Synonyms\HolidayAdd.sql" />
+    <Build Include="SqlNet\Synonyms\HolidayRemove.sql" />
+    <Build Include="SqlNet\Synonyms\Join.sql" />
+    <Build Include="SqlNet\Synonyms\Median.sql" />
+    <Build Include="SqlNet\Synonyms\Mode.sql" />
+    <Build Include="SqlNet\Synonyms\Pi.sql" />
+    <Build Include="SqlNet\Synonyms\E.sql" />
+    <Build Include="SqlNet\Synonyms\FalseString.sql" />
+    <Build Include="SqlNet\Synonyms\TrueString.sql" />
+    <Build Include="SqlNet\Synonyms\IsControl.sql" />
+    <Build Include="SqlNet\Synonyms\IsDigit.sql" />
+    <Build Include="SqlNet\Synonyms\IsLetter.sql" />
+    <Build Include="SqlNet\Synonyms\IsLetterOrDigit.sql" />
+    <Build Include="SqlNet\Synonyms\IsLower.sql" />
+    <Build Include="SqlNet\Synonyms\IsNumber.sql" />
+    <Build Include="SqlNet\Synonyms\IsPunctuation.sql" />
+    <Build Include="SqlNet\Synonyms\IsSeparator.sql" />
+    <Build Include="SqlNet\Synonyms\IsSymbol.sql" />
+    <Build Include="SqlNet\Synonyms\IsUpper.sql" />
+    <Build Include="SqlNet\Synonyms\IsWhiteSpace.sql" />
+    <Build Include="SqlNet\Synonyms\DaysInMonth.sql" />
+    <Build Include="SqlNet\Synonyms\DaysInYear.sql" />
+    <Build Include="SqlNet\Synonyms\IsLeapYear.sql" />
+    <Build Include="SqlNet\Synonyms\Date.sql" />
+    <Build Include="SqlNet\Synonyms\TimeOfDay.sql" />
+    <Build Include="SqlNet\Synonyms\IsWeekendDay.sql" />
+    <Build Include="SqlNet\Synonyms\IsWeekDay.sql" />
+    <Build Include="SqlNet\Synonyms\IsToday.sql" />
+    <Build Include="SqlNet\Synonyms\BeginingOfDay.sql" />
+    <Build Include="SqlNet\Synonyms\EndOfDay.sql" />
+    <Build Include="SqlNet\Synonyms\BeginingOfMonth.sql" />
+    <Build Include="SqlNet\Synonyms\EndOfMonth.sql" />
+    <Build Include="SqlNet\Synonyms\FirstDayOfMonth.sql" />
+    <Build Include="SqlNet\Synonyms\LastDayOfMonth.sql" />
+    <Build Include="SqlNet\Synonyms\BeginingOfWeek.sql" />
+    <Build Include="SqlNet\Synonyms\EndOfWeek.sql" />
+    <Build Include="SqlNet\Synonyms\BeginingOfYear.sql" />
+    <Build Include="SqlNet\Synonyms\EndOfYear.sql" />
+    <Build Include="SqlNet\Synonyms\IsHoliday.sql" />
+    <Build Include="SqlNet\Synonyms\DaysBetweenDates.sql" />
+    <Build Include="SqlNet\Synonyms\Quarter.sql" />
+    <Build Include="SqlNet\Synonyms\ToWordsPL.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assemblies\Sql.Net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Sql.Net">
+      <HintPath>Assemblies\Sql.Net.dll</HintPath>
+      <SqlAssemblyName>SqlNet</SqlAssemblyName>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <SqlOwnerName>dbo</SqlOwnerName>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </Reference>
+  </ItemGroup>
+</Project>

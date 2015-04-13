@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Net", "Sql.Net\Sql.Net.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Net.Scripts", "Sql.Net.Scripts\Sql.Net.Scripts.csproj", "{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Sql.Net.Database", "Sql.Net.Database\Sql.Net.Database.sqlproj", "{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Net.UnitTests", "Sql.Net.UnitTests\Sql.Net.UnitTests.csproj", "{B01628C6-1762-4828-8475-A606CF9A3067}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,16 @@ Global
 		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B01628C6-1762-4828-8475-A606CF9A3067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01628C6-1762-4828-8475-A606CF9A3067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01628C6-1762-4828-8475-A606CF9A3067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01628C6-1762-4828-8475-A606CF9A3067}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
