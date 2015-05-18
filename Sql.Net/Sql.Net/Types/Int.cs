@@ -1,6 +1,6 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
-using Sql.Net.Common;
+using Sql.Net.Extensions;
 
 namespace Sql.Net.Types
 {

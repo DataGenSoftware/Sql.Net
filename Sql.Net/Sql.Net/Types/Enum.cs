@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Sql.Net.Common;
+using Sql.Net.Extensions;
 
 namespace Sql.Net.Types
 {

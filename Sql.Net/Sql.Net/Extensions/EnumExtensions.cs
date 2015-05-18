@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Sql.Net.Common
+namespace Sql.Net.Extensions
 {
 	public static class EnumExtensions
 	{
@@ -23,7 +23,6 @@ namespace Sql.Net.Common
 
 		public static TEnum? TryParse<TEnum>(string value) where TEnum:struct
 		{
-			//TEnum? result = (TEnum?)null;
 			if (value == null || !Enum.IsDefined(typeof(Enum), value))
 			{
 				return null;
