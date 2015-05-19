@@ -1,31 +1,115 @@
-﻿using Sql.Net.Common;
+﻿using Microsoft.SqlServer.Server;
+using Sql.Net.Common;
+using Sql.Net.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Sql.Net.Core
 {
-	public class Settings : Singleton<Settings>, ISeetings
+	public class Settings //: ISeetings
 	{
-		public DayOfWeek FirstDayOfWeek { get; set; }
+		#region Singleton
 
-		public List<DayOfWeek> WeekendDays { get; set; }
+		private static Settings instance = new Settings();
 
-		public Settings()
-			: base()
+		static Settings() { }
+
+		private Settings() { }
+
+		public static Settings Instance
 		{
-			this.FirstDayOfWeek = DayOfWeek.Monday;
-			this.WeekendDays = new List<DayOfWeek>()
+			get
 			{
-				DayOfWeek.Saturday,
-				DayOfWeek.Sunday,
-			};
+				return instance;
+			}
 		}
 
-		public void SettingSet(string settingName)
-		{
+		#endregion
 
+		private DayOfWeek? firstDayOfWeek;
+
+		public DayOfWeek FirstDayOfWeek
+		{
+			get
+			{
+				string firstDayOfWeekSetting = Get("FirstDayOfWeek");
+
+				if (firstDayOfWeekSetting != null)
+				{
+					this.firstDayOfWeek = EnumExtensions.TryParse<DayOfWeek>(firstDayOfWeekSetting);
+				}
+
+				return this.firstDayOfWeek.HasValue ? this.firstDayOfWeek.Value : DayOfWeek.Monday;
+			}
+		}
+
+		public List<DayOfWeek> WeekendDays
+		{
+			get
+			{
+				List<DayOfWeek> weekendDays = new List<DayOfWeek>();
+				string weekendDaysSetting = Get("WeekendDays");
+
+				if (weekendDaysSetting != null)
+				{
+					foreach (string weekendDaySetting in weekendDaysSetting.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries))
+					{
+						DayOfWeek? weekendDay = EnumExtensions.TryParse<DayOfWeek>(weekendDaySetting);
+						if (weekendDay.HasValue)
+						{
+							weekendDays.Add(weekendDay.Value);
+						}
+					}
+				}
+				else
+				{
+					weekendDays.AddRange
+					(
+						new DayOfWeek[]
+						{
+							DayOfWeek.Saturday,
+							DayOfWeek.Sunday,
+						}
+					);
+				}
+
+				return weekendDays;
+			}
+
+		}
+
+		private string Get(string name)
+		{
+			string settingValue = null;
+
+			using (SqlConnection connection = new SqlConnection("context connection=true"))
+			{
+				connection.Open();
+				SqlCommand command = new SqlCommand(string.Format("SELECT [SqlNet].[ConfigurationSettingGet] (@settingName)"), connection);
+				SqlParameter settingNameParameter = new SqlParameter("@settingName", name);
+				command.Parameters.Add(settingNameParameter);
+
+				try
+				{
+					settingValue = (string)command.ExecuteScalar();
+				}
+				catch (SqlException ex)
+				{
+					//throw;
+				}
+			}
+
+			return settingValue;
+		}
+
+		[SqlProcedure()]
+		public static void Flush()
+		{
+			Settings.instance = null;
 		}
 	}
 }

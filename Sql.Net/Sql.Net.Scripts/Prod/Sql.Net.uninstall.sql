@@ -1,5 +1,16 @@
 --UNINSTALL
 
+SET NOCOUNT ON
+GO
+
+DROP PROCEDURE [SqlNet].[ConfigurationSettingsFlush]
+GO
+DROP SYNONYM [SqlNet].[SettingsFlush]
+GO
+DROP TABLE [SqlNet].[ConfigurationSettings]
+GO
+DROP SYNONYM [SqlNet].[Settings]
+GO
 DROP PROCEDURE [SqlNet].[ConfigurationSettingsClear]
 GO
 DROP SYNONYM [SqlNet].[SettingsClear]
@@ -15,10 +26,6 @@ GO
 DROP FUNCTION [SqlNet].[ConfigurationSettingGet]
 GO
 DROP SYNONYM [SqlNet].[SettingGet]
-GO
-DROP TABLE [SqlNet].[ConfigurationSettings]
-GO
-DROP SYNONYM [SqlNet].[Settings]
 GO
 DROP PROCEDURE [SqlNet].[ConfigurationHolidaysClear]
 GO

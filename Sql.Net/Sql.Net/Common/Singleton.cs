@@ -8,7 +8,7 @@ namespace Sql.Net.Common
 	public class Singleton<T>
 		where T : new()
 	{
-		private static readonly T instance = new T();
+		protected static readonly T instance = new T();
 
 		static Singleton() { }
 

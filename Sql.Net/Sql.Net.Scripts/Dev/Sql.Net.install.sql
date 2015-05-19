@@ -1,5 +1,8 @@
 --INSTALL
 
+SET NOCOUNT ON
+GO
+
 EXEC sp_configure 'clr enabled' , '1' 
 GO
 RECONFIGURE 
@@ -10,13 +13,18 @@ EXEC sp_executesql @query
 GO
 
 CREATE ASSEMBLY [SqlNet]
-FROM 'D:\DataGen\Sql.Net\Sql.Net\Sql.Net\bin\Release\Sql.Net.dll'
+FROM 'C:\DataGen\Sql.Net\Sql.Net\Sql.Net\bin\Release\Sql.Net.dll'
 WITH PERMISSION_SET = UNSAFE 
 GO
 
 CREATE SCHEMA [SqlNet]
 GO
 
+CREATE PROCEDURE [SqlNet].[ConfigurationSettingsFlush]
+AS EXTERNAL NAME [SqlNet].[Sql.Net.Core.Settings].[Flush]
+GO
+CREATE SYNONYM [SqlNet].[SettingsFlush] FOR [SqlNet].[ConfigurationSettingsFlush]
+GO
 CREATE TABLE [SqlNet].[ConfigurationSettings]
 (
 	[Name] [nvarchar](255) NOT NULL,
@@ -27,11 +35,21 @@ CREATE TABLE [SqlNet].[ConfigurationSettings]
 	)
 )
 GO
+CREATE TRIGGER [SqlNet].[ConfigurationSettingsChanged] 
+ON [SqlNet].[ConfigurationSettings]
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON
+
+	EXECUTE [SqlNet].[ConfigurationSettingsFlush]
+END
+GO
 CREATE SYNONYM [SqlNet].[Settings] FOR [SqlNet].[ConfigurationSettings]
 GO
 CREATE PROCEDURE [SqlNet].[ConfigurationSettingsClear] AS
 BEGIN
-	TRUNCATE TABLE [SqlNet].[ConfigurationSettings]
+	DELETE FROM [SqlNet].[ConfigurationSettings]
 END
 GO
 CREATE SYNONYM [SqlNet].[SettingsClear] FOR [SqlNet].[ConfigurationSettingsClear]

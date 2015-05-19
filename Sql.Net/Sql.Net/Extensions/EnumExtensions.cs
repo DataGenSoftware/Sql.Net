@@ -21,7 +21,7 @@ namespace Sql.Net.Extensions
 			}
 		}
 
-		public static TEnum? TryParse<TEnum>(string value) where TEnum:struct
+		public static TEnum? TryParse<TEnum>(string value) where TEnum : struct
 		{
 			if (value == null || !Enum.IsDefined(typeof(Enum), value))
 			{
