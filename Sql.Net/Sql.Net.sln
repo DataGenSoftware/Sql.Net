@@ -5,7 +5,24 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Net", "Sql.Net\Sql.Net.csproj", "{9F911867-94B3-41E3-A63B-7C0E1B965C75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Net.Scripts", "Sql.Net.Scripts\Sql.Net.Scripts.csproj", "{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql.Net.Scripts", "Sql.Net.Scripts", "{756A83B5-C088-4475-B1C9-B0EDC4E1F1B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dev", "Dev", "{3DEF193D-B7DC-4A2E-9FAC-8ADE194779C9}"
+	ProjectSection(SolutionItems) = preProject
+		Sql.Net.Scripts\Dev\Sql.Net.install.sql = Sql.Net.Scripts\Dev\Sql.Net.install.sql
+		Sql.Net.Scripts\Dev\Sql.Net.uninstall.sql = Sql.Net.Scripts\Dev\Sql.Net.uninstall.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prod", "Prod", "{F10012B8-02CE-42C8-98B2-90DF32BB7853}"
+	ProjectSection(SolutionItems) = preProject
+		Sql.Net.Scripts\Prod\Sql.Net.install.sql = Sql.Net.Scripts\Prod\Sql.Net.install.sql
+		Sql.Net.Scripts\Prod\Sql.Net.uninstall.sql = Sql.Net.Scripts\Prod\Sql.Net.uninstall.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{40DB8050-6F79-4067-8758-67FC4071AF9B}"
+	ProjectSection(SolutionItems) = preProject
+		Sql.Net.Scripts\Resources\Holidays Poland 2015.sql = Sql.Net.Scripts\Resources\Holidays Poland 2015.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +34,13 @@ Global
 		{9F911867-94B3-41E3-A63B-7C0E1B965C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F911867-94B3-41E3-A63B-7C0E1B965C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F911867-94B3-41E3-A63B-7C0E1B965C75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DEF193D-B7DC-4A2E-9FAC-8ADE194779C9} = {756A83B5-C088-4475-B1C9-B0EDC4E1F1B9}
+		{F10012B8-02CE-42C8-98B2-90DF32BB7853} = {756A83B5-C088-4475-B1C9-B0EDC4E1F1B9}
+		{40DB8050-6F79-4067-8758-67FC4071AF9B} = {756A83B5-C088-4475-B1C9-B0EDC4E1F1B9}
 	EndGlobalSection
 EndGlobal
