@@ -382,10 +382,10 @@ GO
 CREATE FUNCTION [SqlNet].[IntMaxValue]() RETURNS int
 AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.IntType].IntMaxValue
 GO
-CREATE FUNCTION [SqlNet].[IntToWordsPL](@value int) RETURNS nvarchar(max)
-AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.IntType].IntToWordsPL
+CREATE FUNCTION [SqlNet].[IntToWords](@value int, @culture nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.IntType].IntToWords
 GO
-CREATE SYNONYM [SqlNet].[ToWordsPL] FOR [SqlNet].[IntToWordsPL]
+CREATE SYNONYM [SqlNet].[ToWords] FOR [SqlNet].[IntToWords]
 GO
 
 CREATE FUNCTION [SqlNet].[SingleToString](@value real, @format nvarchar(max)) RETURNS nvarchar(max)

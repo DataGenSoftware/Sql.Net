@@ -7,7 +7,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using Sql.Net.Extensions;
+using DataGen.Extensions;
 using Sql.Net.Common;
 
 namespace Sql.Net.Aggregates

@@ -1,6 +1,6 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
-using Sql.Net.Extensions;
+using DataGen.Extensions;
 
 namespace Sql.Net.Types
 {
@@ -33,9 +33,9 @@ namespace Sql.Net.Types
 		}
 
 		[SqlFunction()]
-		public static String IntToWordsPL(Int32? value)
+		public static String IntToWords(Int32? value, string culture)
 		{
-			return Int64ToWordsPL(value);
+			return Int32ToWords(value, culture);
 		}
 
 		#endregion
@@ -80,6 +80,12 @@ namespace Sql.Net.Types
 			return result;
 		}
 
+		[SqlFunction()]
+		public static String Int16ToWords(Int16? value, string culture)
+		{
+			return IntToWords(value, culture);
+		}
+
 		#endregion
 		  
 		#region Int32
@@ -122,6 +128,17 @@ namespace Sql.Net.Types
 			return result;
 		}
 
+		[SqlFunction()]
+		public static String Int32ToWords(Int32? value, string culture)
+		{
+			String result = null;
+			if (value.HasValue == true)
+			{
+				result = value.Value.ToWords(culture);
+			}
+			return result;
+		}
+
 		#endregion
 
 		#region Int64
@@ -138,14 +155,9 @@ namespace Sql.Net.Types
 		}
 
 		[SqlFunction()]
-		public static String Int64ToWordsPL(Int64? value)
+		public static String Int64ToWords(Int64? value, string culture)
 		{
-			String result = null;
-			if (value.HasValue == true)
-			{
-				result = value.Value.ToWords();
-			}
-			return result;
+			return IntToWords((Int32)value, culture);
 		}
 
 		[SqlFunction()]

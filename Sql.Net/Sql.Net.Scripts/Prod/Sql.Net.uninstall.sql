@@ -229,9 +229,9 @@ DROP FUNCTION [SqlNet].[IntMinValue]
 GO
 DROP FUNCTION [SqlNet].[IntMaxValue]
 GO
-DROP FUNCTION [SqlNet].[IntToWordsPL]
+DROP FUNCTION [SqlNet].[IntToWords]
 GO
-DROP SYNONYM [SqlNet].[ToWordsPL]
+DROP SYNONYM [SqlNet].[ToWords]
 GO
 
 DROP FUNCTION [SqlNet].[SingleToString]

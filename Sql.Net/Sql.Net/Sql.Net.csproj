@@ -33,6 +33,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataGen.Extensions">
+      <HintPath>..\packages\DataGen.Extensions.1.0.4\lib\net35\DataGen.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,13 +50,7 @@
     <Compile Include="Common\Singleton.cs" />
     <Compile Include="Core\ISettings.cs" />
     <Compile Include="Core\Settings.cs" />
-    <Compile Include="Extensions\ByteExtensions.cs" />
-    <Compile Include="Extensions\CharExtensions.cs" />
-    <Compile Include="Extensions\DateExtensions.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\IntegerExtensions.cs" />
     <Compile Include="Common\Serializator.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Mathematic\Constants.cs" />
     <Compile Include="System\EnvirontmentVariables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +63,9 @@
     <Compile Include="Types\Int.cs" />
     <Compile Include="Types\Single.cs" />
     <Compile Include="Types\String.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
