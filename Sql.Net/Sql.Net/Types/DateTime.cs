@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
-using Sql.Net.Common;
+using DataGen.Extensions;
 
 namespace Sql.Net.Types
 {
