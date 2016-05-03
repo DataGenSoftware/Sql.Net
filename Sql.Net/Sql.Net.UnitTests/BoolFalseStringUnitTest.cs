@@ -37,57 +37,57 @@ namespace Sql.Net.UnitTests
 		/// </summary>
 		private void InitializeComponent()
 		{
-			Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction SqlNet_BoolFalseStringTest_TestAction;
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoolFalseStringUnitTest));
-			Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
-			this.SqlNet_BoolFalseStringTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-			SqlNet_BoolFalseStringTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
-			scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
-			// 
-			// SqlNet_BoolFalseStringTest_TestAction
-			// 
-			SqlNet_BoolFalseStringTest_TestAction.Conditions.Add(scalarValueCondition1);
-			resources.ApplyResources(SqlNet_BoolFalseStringTest_TestAction, "SqlNet_BoolFalseStringTest_TestAction");
-			// 
-			// SqlNet_BoolFalseStringTestData
-			// 
-			this.SqlNet_BoolFalseStringTestData.PosttestAction = null;
-			this.SqlNet_BoolFalseStringTestData.PretestAction = null;
-			this.SqlNet_BoolFalseStringTestData.TestAction = SqlNet_BoolFalseStringTest_TestAction;
-			// 
-			// scalarValueCondition1
-			// 
-			scalarValueCondition1.ColumnNumber = 1;
-			scalarValueCondition1.Enabled = true;
-			scalarValueCondition1.ExpectedValue = "False";
-			scalarValueCondition1.Name = "scalarValueCondition1";
-			scalarValueCondition1.NullExpected = false;
-			scalarValueCondition1.ResultSet = 1;
-			scalarValueCondition1.RowNumber = 1;
-		}
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction BoolFalseString_ReturnsFalse_TestAction;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoolFalseStringUnitTest));
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
+            this.BoolFalseString_ReturnsFalseData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            BoolFalseString_ReturnsFalse_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
+            // 
+            // BoolFalseString_ReturnsFalse_TestAction
+            // 
+            BoolFalseString_ReturnsFalse_TestAction.Conditions.Add(scalarValueCondition1);
+            resources.ApplyResources(BoolFalseString_ReturnsFalse_TestAction, "BoolFalseString_ReturnsFalse_TestAction");
+            // 
+            // scalarValueCondition1
+            // 
+            scalarValueCondition1.ColumnNumber = 1;
+            scalarValueCondition1.Enabled = true;
+            scalarValueCondition1.ExpectedValue = "False";
+            scalarValueCondition1.Name = "scalarValueCondition1";
+            scalarValueCondition1.NullExpected = false;
+            scalarValueCondition1.ResultSet = 1;
+            scalarValueCondition1.RowNumber = 1;
+            // 
+            // BoolFalseString_ReturnsFalseData
+            // 
+            this.BoolFalseString_ReturnsFalseData.PosttestAction = null;
+            this.BoolFalseString_ReturnsFalseData.PretestAction = null;
+            this.BoolFalseString_ReturnsFalseData.TestAction = BoolFalseString_ReturnsFalse_TestAction;
+        }
 
-		#endregion
-
-
-		#region Additional test attributes
-		//
-		// You can use the following additional attributes as you write your tests:
-		//
-		// Use ClassInitialize to run code before running the first test in the class
-		// [ClassInitialize()]
-		// public static void MyClassInitialize(TestContext testContext) { }
-		//
-		// Use ClassCleanup to run code after all tests in a class have run
-		// [ClassCleanup()]
-		// public static void MyClassCleanup() { }
-		//
-		#endregion
+        #endregion
 
 
-		[TestMethod()]
-		public void SqlNet_BoolFalseStringTest()
+        #region Additional test attributes
+        //
+        // You can use the following additional attributes as you write your tests:
+        //
+        // Use ClassInitialize to run code before running the first test in the class
+        // [ClassInitialize()]
+        // public static void MyClassInitialize(TestContext testContext) { }
+        //
+        // Use ClassCleanup to run code after all tests in a class have run
+        // [ClassCleanup()]
+        // public static void MyClassCleanup() { }
+        //
+        #endregion
+
+
+        [TestMethod()]
+		public void BoolFalseString_ReturnsFalse()
 		{
-			SqlDatabaseTestActions testActions = this.SqlNet_BoolFalseStringTestData;
+			SqlDatabaseTestActions testActions = this.BoolFalseString_ReturnsFalseData;
 			// Execute the pre-test script
 			// 
 			System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -107,6 +107,6 @@ namespace Sql.Net.UnitTests
 				SqlExecutionResult[] posttestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PosttestAction);
 			}
 		}
-		private SqlDatabaseTestActions SqlNet_BoolFalseStringTestData;
+		private SqlDatabaseTestActions BoolFalseString_ReturnsFalseData;
 	}
 }

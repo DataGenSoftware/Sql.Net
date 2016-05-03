@@ -37,57 +37,57 @@ namespace Sql.Net.UnitTests
 		/// </summary>
 		private void InitializeComponent()
 		{
-			Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction SqlNet_BoolTrueStringTest_TestAction;
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoolTrueStringUnitTest));
-			Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
-			this.SqlNet_BoolTrueStringTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-			SqlNet_BoolTrueStringTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
-			scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
-			// 
-			// SqlNet_BoolTrueStringTestData
-			// 
-			this.SqlNet_BoolTrueStringTestData.PosttestAction = null;
-			this.SqlNet_BoolTrueStringTestData.PretestAction = null;
-			this.SqlNet_BoolTrueStringTestData.TestAction = SqlNet_BoolTrueStringTest_TestAction;
-			// 
-			// SqlNet_BoolTrueStringTest_TestAction
-			// 
-			SqlNet_BoolTrueStringTest_TestAction.Conditions.Add(scalarValueCondition1);
-			resources.ApplyResources(SqlNet_BoolTrueStringTest_TestAction, "SqlNet_BoolTrueStringTest_TestAction");
-			// 
-			// scalarValueCondition1
-			// 
-			scalarValueCondition1.ColumnNumber = 1;
-			scalarValueCondition1.Enabled = true;
-			scalarValueCondition1.ExpectedValue = "True";
-			scalarValueCondition1.Name = "scalarValueCondition1";
-			scalarValueCondition1.NullExpected = false;
-			scalarValueCondition1.ResultSet = 1;
-			scalarValueCondition1.RowNumber = 1;
-		}
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction BoolTrueString_ReturnsTrue_TestAction;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoolTrueStringUnitTest));
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
+            this.BoolTrueString_ReturnsTrueData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            BoolTrueString_ReturnsTrue_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
+            // 
+            // BoolTrueString_ReturnsTrue_TestAction
+            // 
+            BoolTrueString_ReturnsTrue_TestAction.Conditions.Add(scalarValueCondition1);
+            resources.ApplyResources(BoolTrueString_ReturnsTrue_TestAction, "BoolTrueString_ReturnsTrue_TestAction");
+            // 
+            // scalarValueCondition1
+            // 
+            scalarValueCondition1.ColumnNumber = 1;
+            scalarValueCondition1.Enabled = true;
+            scalarValueCondition1.ExpectedValue = "True";
+            scalarValueCondition1.Name = "scalarValueCondition1";
+            scalarValueCondition1.NullExpected = false;
+            scalarValueCondition1.ResultSet = 1;
+            scalarValueCondition1.RowNumber = 1;
+            // 
+            // BoolTrueString_ReturnsTrueData
+            // 
+            this.BoolTrueString_ReturnsTrueData.PosttestAction = null;
+            this.BoolTrueString_ReturnsTrueData.PretestAction = null;
+            this.BoolTrueString_ReturnsTrueData.TestAction = BoolTrueString_ReturnsTrue_TestAction;
+        }
 
-		#endregion
-
-
-		#region Additional test attributes
-		//
-		// You can use the following additional attributes as you write your tests:
-		//
-		// Use ClassInitialize to run code before running the first test in the class
-		// [ClassInitialize()]
-		// public static void MyClassInitialize(TestContext testContext) { }
-		//
-		// Use ClassCleanup to run code after all tests in a class have run
-		// [ClassCleanup()]
-		// public static void MyClassCleanup() { }
-		//
-		#endregion
+        #endregion
 
 
-		[TestMethod()]
-		public void SqlNet_BoolTrueStringTest()
+        #region Additional test attributes
+        //
+        // You can use the following additional attributes as you write your tests:
+        //
+        // Use ClassInitialize to run code before running the first test in the class
+        // [ClassInitialize()]
+        // public static void MyClassInitialize(TestContext testContext) { }
+        //
+        // Use ClassCleanup to run code after all tests in a class have run
+        // [ClassCleanup()]
+        // public static void MyClassCleanup() { }
+        //
+        #endregion
+
+
+        [TestMethod()]
+		public void BoolTrueString_ReturnsTrue()
 		{
-			SqlDatabaseTestActions testActions = this.SqlNet_BoolTrueStringTestData;
+			SqlDatabaseTestActions testActions = this.BoolTrueString_ReturnsTrueData;
 			// Execute the pre-test script
 			// 
 			System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -107,6 +107,6 @@ namespace Sql.Net.UnitTests
 				SqlExecutionResult[] posttestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PosttestAction);
 			}
 		}
-		private SqlDatabaseTestActions SqlNet_BoolTrueStringTestData;
+		private SqlDatabaseTestActions BoolTrueString_ReturnsTrueData;
 	}
 }
