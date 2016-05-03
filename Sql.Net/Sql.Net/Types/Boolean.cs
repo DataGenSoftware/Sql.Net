@@ -12,7 +12,7 @@ namespace Sql.Net.Types
 		public static String ToString(Boolean? value)
 		{
 			String result = null;
-			if (value.HasValue == true)
+			if (value.HasValue)
 			{
 				result = value.Value.ToString();
 			}
@@ -38,7 +38,7 @@ namespace Sql.Net.Types
 			if (value != null)
 			{
 				Boolean parsedValue;
-				if (Boolean.TryParse(value, out parsedValue) == true)
+				if (Boolean.TryParse(value, out parsedValue))
 				{
 					result = parsedValue;
 				}

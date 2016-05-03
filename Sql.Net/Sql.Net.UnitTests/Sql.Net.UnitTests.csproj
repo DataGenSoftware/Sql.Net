@@ -60,6 +60,9 @@
     <Compile Include="BoolTrueStringUnitTest.cs">
       <SubType>Designer</SubType>
     </Compile>
+    <Compile Include="BoolTryParseUnitTest.cs">
+      <SubType>Designer</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDatabaseSetup.cs" />
   </ItemGroup>
@@ -75,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BoolTrueStringUnitTest.resx">
       <DependentUpon>BoolTrueStringUnitTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoolTryParseUnitTest.resx">
+      <DependentUpon>BoolTryParseUnitTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>
