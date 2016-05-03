@@ -315,5 +315,5 @@ GO
 DROP ASSEMBLY [SqlNet]
 GO
 
-DROP ASSEMBLY [DataGen.Extensions]
-GO
+--DROP ASSEMBLY [DataGen.Extensions]
+--GO
