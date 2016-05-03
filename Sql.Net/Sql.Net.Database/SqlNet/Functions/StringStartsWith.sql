@@ -4,3 +4,5 @@ RETURNS BIT
 AS
  EXTERNAL NAME [SqlNet].[Sql.Net.Types.StringType].[StringStartsWith]
 
+
+

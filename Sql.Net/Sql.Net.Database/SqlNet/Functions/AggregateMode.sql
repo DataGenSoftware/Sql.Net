@@ -2,3 +2,5 @@
     RETURNS SQL_VARIANT
     EXTERNAL NAME [SqlNet].[Sql.Net.Aggregates.Mode];
 
+
+

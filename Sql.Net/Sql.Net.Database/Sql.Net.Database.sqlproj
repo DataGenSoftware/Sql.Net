@@ -134,7 +134,6 @@
     <Build Include="SqlNet\Functions\IntTryParse.sql" />
     <Build Include="SqlNet\Functions\IntMinValue.sql" />
     <Build Include="SqlNet\Functions\IntMaxValue.sql" />
-    <Build Include="SqlNet\Functions\IntToWordsPL.sql" />
     <Build Include="SqlNet\Functions\SingleToString.sql" />
     <Build Include="SqlNet\Functions\DateTimeDaysBetweenDates.sql" />
     <Build Include="SqlNet\Functions\StringSplit.sql" />
@@ -213,10 +212,10 @@
     <Build Include="SqlNet\Synonyms\IsHoliday.sql" />
     <Build Include="SqlNet\Synonyms\DaysBetweenDates.sql" />
     <Build Include="SqlNet\Synonyms\Quarter.sql" />
-    <Build Include="SqlNet\Synonyms\ToWordsPL.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assemblies\Sql.Net.dll" />
+    <Build Include="SqlNet\Functions\IntToWords.sql" />
+    <Build Include="SqlNet\Stored Procedures\ConfigurationSettingsFlush.sql" />
+    <Build Include="SqlNet\Synonyms\ToWords.sql" />
+    <Build Include="SqlNet\Synonyms\SettingsFlush.sql" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Sql.Net">
@@ -227,5 +226,18 @@
       <SqlOwnerName>dbo</SqlOwnerName>
       <SqlPermissionSet>UNSAFE</SqlPermissionSet>
     </Reference>
+    <Reference Include="DataGen.Extensions">
+      <HintPath>Assemblies\DataGen.Extensions.dll</HintPath>
+      <SqlAssemblyName>DataGen.Extensions</SqlAssemblyName>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <SqlOwnerName>dbo</SqlOwnerName>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+      <IsVisible>False</IsVisible>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assemblies\Sql.Net.dll" />
+    <None Include="Assemblies\DataGen.Extensions.dll" />
   </ItemGroup>
 </Project>

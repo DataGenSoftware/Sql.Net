@@ -2,3 +2,5 @@
     RETURNS NVARCHAR (MAX)
     EXTERNAL NAME [SqlNet].[Sql.Net.Aggregates.Join];
 
+
+

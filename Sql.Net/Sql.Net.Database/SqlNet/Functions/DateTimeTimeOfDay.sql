@@ -4,3 +4,5 @@ RETURNS TIME (7)
 AS
  EXTERNAL NAME [SqlNet].[Sql.Net.Types.DateTimeType].[DateTimeTimeOfDay]
 
+
+

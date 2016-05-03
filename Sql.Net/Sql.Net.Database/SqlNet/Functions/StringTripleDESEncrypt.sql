@@ -4,3 +4,5 @@ RETURNS NVARCHAR (MAX)
 AS
  EXTERNAL NAME [SqlNet].[Sql.Net.Types.StringType].[StringTripleDESEncrypt]
 
+
+
