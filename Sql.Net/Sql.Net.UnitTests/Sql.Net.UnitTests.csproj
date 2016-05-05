@@ -63,6 +63,9 @@
     <Compile Include="BoolTryParseUnitTest.cs">
       <SubType>Designer</SubType>
     </Compile>
+    <Compile Include="CharIsUpperUnitTest.cs">
+      <SubType>Designer</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDatabaseSetup.cs" />
   </ItemGroup>
@@ -81,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BoolTryParseUnitTest.resx">
       <DependentUpon>BoolTryParseUnitTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharIsUpperUnitTest.resx">
+      <DependentUpon>CharIsUpperUnitTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>

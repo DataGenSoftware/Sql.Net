@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 using DataGen.Extensions;
+using DataGen.NumberToWords;
 
 namespace Sql.Net.Types
 {

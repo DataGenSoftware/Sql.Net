@@ -6,6 +6,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using DataGen.Extensions;
+using DataGen.Cryptography;
 
 namespace Sql.Net.Types
 {
