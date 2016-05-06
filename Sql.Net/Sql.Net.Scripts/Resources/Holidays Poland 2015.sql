@@ -18,7 +18,7 @@ EXECUTE [Sql.Net].[Configuration.HolidayAdd] @date
 SET @date = convert(datetime, '20150503', 112)
 EXECUTE [Sql.Net].[Configuration.HolidayAdd] @date
 
-SET @date = convert(datetime, '20150124', 112)
+SET @date = convert(datetime, '20150524', 112)
 EXECUTE [Sql.Net].[Configuration.HolidayAdd] @date
 
 SET @date = convert(datetime, '20150604', 112)
