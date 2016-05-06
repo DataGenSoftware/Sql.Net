@@ -56,7 +56,6 @@
     <Compile Include="Aggregates\Median.cs" />
     <Compile Include="Aggregates\Mode.cs" />
     <Compile Include="Aggregates\Join.cs" />
-    <Compile Include="Common\Singleton.cs" />
     <Compile Include="Core\ISettings.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Common\Serializator.cs" />

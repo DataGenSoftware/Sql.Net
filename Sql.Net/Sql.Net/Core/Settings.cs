@@ -10,23 +10,34 @@ using System.Text;
 
 namespace Sql.Net.Core
 {
-	public class Settings //: ISeetings
+	public sealed class Settings : ISeetings
 	{
 		#region Singleton
 
-		private static Settings instance = new Settings();
+		private static volatile Settings instance;
 
-		static Settings() { }
+        private static readonly object syncObject = new object();
+
+        static Settings() { }
 
 		private Settings() { }
 
 		public static Settings Instance
 		{
-			get
-			{
-				return instance;
-			}
-		}
+            get
+            {
+                if (instance.IsNull())
+                {
+                    lock (syncObject)
+                    {
+                        if (instance.IsNull())
+                            instance = new Settings();
+                    }
+                }
+
+                return instance;
+            }
+        }
 
 		#endregion
 
@@ -82,7 +93,7 @@ namespace Sql.Net.Core
 
 		}
 
-		private string Get(string name)
+		public string Get(string name)
 		{
 			string settingValue = null;
 
@@ -99,7 +110,7 @@ namespace Sql.Net.Core
 				}
 				catch (SqlException ex)
 				{
-					//throw;
+					throw ex;
 				}
 			}
 
@@ -107,7 +118,7 @@ namespace Sql.Net.Core
 		}
 
 		[SqlProcedure()]
-		public static void Flush()
+		public void Flush()
 		{
 			Settings.instance = null;
 		}

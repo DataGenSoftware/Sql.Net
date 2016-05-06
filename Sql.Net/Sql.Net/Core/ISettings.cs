@@ -7,7 +7,7 @@ namespace Sql.Net.Core
 {
 	public interface ISeetings
 	{
-		//string Get(string settingName);
+		string Get(string name);
 
 		void Flush();
 	}
