@@ -206,7 +206,7 @@ DROP FUNCTION [SqlNet].[DateTimeDaysBetweenDates]
 GO
 DROP SYNONYM [SqlNet].[DaysBetweenDates]
 GO
-DROP FUNCTION [SqlNet].[DateTimeQuarterNumberOfyear]
+DROP FUNCTION [SqlNet].[DateTimeQuarterNumberOfYear]
 GO
 DROP SYNONYM [SqlNet].[Quarter]
 GO

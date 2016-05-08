@@ -346,14 +346,14 @@ END
 GO
 CREATE SYNONYM [SqlNet].[DaysBetweenDates] FOR [SqlNet].[DateTimeDaysBetweenDates]
 GO
-CREATE FUNCTION [SqlNet].[DateTimeQuarterNumberOfyear](@dateTime datetime)
+CREATE FUNCTION [SqlNet].[DateTimeQuarterNumberOfYear](@dateTime datetime)
 RETURNS INT
 AS
 BEGIN
 	RETURN DATEPART(quarter, @dateTime)
 END
 GO
-CREATE SYNONYM [SqlNet].[Quarter] FOR [SqlNet].[DateTimeQuarterNumberOfyear]
+CREATE SYNONYM [SqlNet].[Quarter] FOR [SqlNet].[DateTimeQuarterNumberOfYear]
 GO
 
 CREATE FUNCTION [SqlNet].[DecimalToString](@value decimal(18, 4), @format nvarchar(max)) RETURNS nvarchar(max)
