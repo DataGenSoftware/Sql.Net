@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Net", "Sql.Net\Sql.Net.csproj", "{9F911867-94B3-41E3-A63B-7C0E1B965C75}"
 EndProject
@@ -22,6 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{40DB8050-6F79-4067-8758-67FC4071AF9B}"
 	ProjectSection(SolutionItems) = preProject
 		Sql.Net.Scripts\Resources\Holidays Poland 2015.sql = Sql.Net.Scripts\Resources\Holidays Poland 2015.sql
+		Sql.Net.Scripts\Resources\Holidays Poland 2016.sql = Sql.Net.Scripts\Resources\Holidays Poland 2016.sql
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Sql.Net.Database", "Sql.Net.Database\Sql.Net.Database.sqlproj", "{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}"
@@ -38,10 +39,6 @@ Global
 		{9F911867-94B3-41E3-A63B-7C0E1B965C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F911867-94B3-41E3-A63B-7C0E1B965C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F911867-94B3-41E3-A63B-7C0E1B965C75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2353105-7DBE-4F9F-8DCE-A2DD75B20D84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
