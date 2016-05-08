@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [SqlNet].[DateTimeQuarterNumberOfyear](@dateTime datetime)
+﻿CREATE FUNCTION [SqlNet].[DateTimeQuarterNumberOfYear](@dateTime datetime)
 RETURNS INT
 AS
 BEGIN

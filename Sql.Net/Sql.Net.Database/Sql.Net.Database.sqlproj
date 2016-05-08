@@ -72,7 +72,6 @@
     <Build Include="SqlNet\Tables\ConfigurationHolidays.sql" />
     <Build Include="SqlNet\Functions\ConfigurationSettingGet.sql" />
     <Build Include="SqlNet\Functions\DateTimeIsHoliday.sql" />
-    <Build Include="SqlNet\Functions\DateTimeQuarterNumberOfyear.sql" />
     <Build Include="SqlNet\Functions\SingleTryParse.sql" />
     <Build Include="SqlNet\Functions\StringContains.sql" />
     <Build Include="SqlNet\Functions\StringEndsWith.sql" />
@@ -216,6 +215,7 @@
     <Build Include="SqlNet\Stored Procedures\ConfigurationSettingsFlush.sql" />
     <Build Include="SqlNet\Synonyms\ToWords.sql" />
     <Build Include="SqlNet\Synonyms\SettingsFlush.sql" />
+    <Build Include="SqlNet\Functions\DateTimeQuarterNumberOfYear.sql" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Sql.Net">
