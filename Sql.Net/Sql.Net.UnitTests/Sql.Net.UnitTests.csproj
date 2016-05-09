@@ -66,6 +66,9 @@
     <Compile Include="CharIsUpperUnitTest.cs">
       <SubType>Designer</SubType>
     </Compile>
+    <Compile Include="DateTimeQuarterNumberOfYearUnitTest.cs">
+      <SubType>Designer</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDatabaseSetup.cs" />
   </ItemGroup>
@@ -87,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CharIsUpperUnitTest.resx">
       <DependentUpon>CharIsUpperUnitTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateTimeQuarterNumberOfYearUnitTest.resx">
+      <DependentUpon>DateTimeQuarterNumberOfYearUnitTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>
