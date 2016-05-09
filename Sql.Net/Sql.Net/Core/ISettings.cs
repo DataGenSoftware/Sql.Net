@@ -9,6 +9,6 @@ namespace Sql.Net.Core
 	{
 		string Get(string name);
 
-		void Flush();
+		//void Flush();
 	}
 }

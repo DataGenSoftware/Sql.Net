@@ -118,7 +118,7 @@ namespace Sql.Net.Core
 		}
 
 		[SqlProcedure()]
-		public void Flush()
+		public static void Flush()
 		{
 			Settings.instance = null;
 		}

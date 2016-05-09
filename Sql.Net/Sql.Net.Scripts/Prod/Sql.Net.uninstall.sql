@@ -314,3 +314,12 @@ GO
 
 DROP ASSEMBLY [SqlNet]
 GO
+
+DROP ASSEMBLY [DataGen.NumberToWords]
+GO
+
+DROP ASSEMBLY [DataGen.Cryptography]
+GO
+
+DROP ASSEMBLY [DataGen.Extensions]
+GO
