@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 	ProjectSection(SolutionItems) = preProject
 		Sql.Net.Scripts\Resources\Holidays Poland 2015.sql = Sql.Net.Scripts\Resources\Holidays Poland 2015.sql
 		Sql.Net.Scripts\Resources\Holidays Poland 2016.sql = Sql.Net.Scripts\Resources\Holidays Poland 2016.sql
+		Sql.Net.Scripts\Resources\Holidays Poland 2017.sql = Sql.Net.Scripts\Resources\Holidays Poland 2017.sql
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Sql.Net.Database", "Sql.Net.Database\Sql.Net.Database.sqlproj", "{7A6EAEE3-4D05-4C23-A0D4-4AA63BCBF690}"
