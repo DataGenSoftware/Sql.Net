@@ -370,7 +370,7 @@ BEGIN
 	RETURN DATEPART(quarter, @dateTime)
 END
 GO
-CREATE SYNONYM [SqlNet].[Quarter] FOR [SqlNet].[DateTimeQuarterNumberOfYear]
+CREATE SYNONYM [SqlNet].[QuarterOfYear] FOR [SqlNet].[DateTimeQuarterNumberOfYear]
 GO
 
 CREATE FUNCTION [SqlNet].[DateTimeWeekNumberOfYear](@dateTime datetime)
