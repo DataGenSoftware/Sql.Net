@@ -383,6 +383,16 @@ GO
 CREATE SYNONYM [SqlNet].[WeekOfYear] FOR [SqlNet].[DateTimeWeekNumberOfYear]
 GO
 
+CREATE FUNCTION [SqlNet].[DateTimeDayNumberOfYear](@dateTime datetime)
+RETURNS INT
+AS
+BEGIN
+	RETURN DATEPART(day, @dateTime)
+END
+GO
+CREATE SYNONYM [SqlNet].[DayOfYear] FOR [SqlNet].[DateTimeDayNumberOfYear]
+GO
+
 CREATE FUNCTION [SqlNet].[DecimalToString](@value decimal(18, 4), @format nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.DecimalType].DecimalToString
 GO

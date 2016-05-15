@@ -214,7 +214,10 @@ DROP FUNCTION [SqlNet].[DateTimeWeekNumberOfYear]
 GO
 DROP SYNONYM [SqlNet].[WeekOfYear]
 GO
-
+DROP FUNCTION [SqlNet].[DateTimeDayNumberOfYear]
+GO
+DROP SYNONYM [SqlNet].[DayOfYear]
+GO
 
 DROP FUNCTION [SqlNet].[DecimalToString]
 GO
