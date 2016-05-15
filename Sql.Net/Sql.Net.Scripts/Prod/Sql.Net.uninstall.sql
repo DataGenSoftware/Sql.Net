@@ -210,6 +210,10 @@ DROP FUNCTION [SqlNet].[DateTimeQuarterNumberOfYear]
 GO
 DROP SYNONYM [SqlNet].[Quarter]
 GO
+DROP FUNCTION [SqlNet].[DateTimeWeekNumberOfYear]
+GO
+DROP SYNONYM [SqlNet].[WeekOfYear]
+GO
 
 DROP FUNCTION [SqlNet].[DecimalToString]
 GO
