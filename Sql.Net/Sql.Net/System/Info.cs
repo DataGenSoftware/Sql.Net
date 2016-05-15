@@ -8,7 +8,7 @@ namespace Sql.Net.System
 {
     public static class Info
     {
-        private static string GetAssemblyVersion()
+        public static string GetAssemblyVersion()
         {
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
 
