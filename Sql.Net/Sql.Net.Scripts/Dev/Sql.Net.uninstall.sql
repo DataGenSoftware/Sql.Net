@@ -309,6 +309,11 @@ GO
 DROP SYNONYM [SqlNet].[EnvironmentVariableGet]
 GO
 
+DROP FUNCTION [SqlNet].[SystemInfoVersion]
+GO
+DROP SYNONYM [SqlNet].[Version]
+GO
+
 DROP SCHEMA [SqlNet]
 GO
 

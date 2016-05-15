@@ -481,3 +481,9 @@ AS EXTERNAL NAME [SqlNet].[Sql.Net.System.EnvironmentVariables].Get
 GO
 CREATE SYNONYM [SqlNet].[EnvironmentVariableGet] FOR [SqlNet].[SystemEnvironmentVariableGet]
 GO
+
+CREATE FUNCTION [SqlNet].[SystemInfoVersion]() RETURNS nvarchar(max)
+AS EXTERNAL NAME [SqlNet].[Sql.Net.System.Info].GetVersion
+GO
+CREATE SYNONYM [SqlNet].[Version] FOR [SqlNet].[SystemInfoVersion]
+GO
