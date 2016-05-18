@@ -10,11 +10,11 @@ using System.Text;
 
 namespace Sql.Net.Core
 {
-	public sealed class Settings : ISeetings
+	public sealed class Settings : ISettings
 	{
 		#region Singleton
 
-		private static volatile Settings instance;
+		private static volatile ISettings instance;
 
         private static readonly object syncObject = new object();
 
@@ -22,7 +22,7 @@ namespace Sql.Net.Core
 
 		private Settings() { }
 
-		public static Settings Instance
+		public static ISettings Instance
 		{
             get
             {

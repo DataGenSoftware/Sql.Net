@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sql.Net.Core
 {
-	public interface ISeetings
+	public interface ISettings
 	{
 		string Get(string name);
 
