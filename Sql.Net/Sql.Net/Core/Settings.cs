@@ -10,25 +10,25 @@ using System.Text;
 
 namespace Sql.Net.Core
 {
-	public sealed class Settings : ISettings
+public sealed class Settings : ISettings
+{
+	#region Singleton
+
+	private static readonly ISettings instance = new Settings();
+
+    static Settings() { }
+
+	private Settings() { }
+
+	public static ISettings Instance
 	{
-		#region Singleton
-
-		private static readonly ISettings instance = new Settings();
-
-        static Settings() { }
-
-		private Settings() { }
-
-		public static ISettings Instance
-		{
-            get
-            {
-                return instance;
-            }
+        get
+        {
+            return instance;
         }
+    }
 
-		#endregion
+	#endregion
 
 		private DayOfWeek? firstDayOfWeek;
 
