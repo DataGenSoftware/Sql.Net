@@ -14,9 +14,7 @@ namespace Sql.Net.Core
 	{
 		#region Singleton
 
-		private static volatile ISettings instance;
-
-        private static readonly object syncObject = new object();
+		private static readonly ISettings instance = new Settings();
 
         static Settings() { }
 
@@ -26,15 +24,6 @@ namespace Sql.Net.Core
 		{
             get
             {
-                if (instance.IsNull())
-                {
-                    lock (syncObject)
-                    {
-                        if (instance.IsNull())
-                            instance = new Settings();
-                    }
-                }
-
                 return instance;
             }
         }
@@ -120,7 +109,7 @@ namespace Sql.Net.Core
 		[SqlProcedure()]
 		public static void Flush()
 		{
-			Settings.instance = null;
+			//Settings.instance = null;
 		}
 	}
 }
