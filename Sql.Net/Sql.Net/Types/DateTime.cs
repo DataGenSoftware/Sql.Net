@@ -141,7 +141,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.BeginingOfDay();
+				result = dateTime.Value.BeginingOfMonth();
 			}
 			return result;
 		}
@@ -152,7 +152,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.EndOfDay();
+				result = dateTime.Value.EndOfMonth();
 			}
 			return result;
 		}
@@ -163,7 +163,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.BeginingOfMonth();
+				result = dateTime.Value.BeginingOfMonth().Date;
 			}
 			return result;
 		}
@@ -174,7 +174,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.EndOfMonth();
+				result = dateTime.Value.EndOfMonth().Date;
 			}
 			return result;
 		}
@@ -207,7 +207,7 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.BeginingOfWeek();
+				result = dateTime.Value.BeginingOfYear();
 			}
 			return result;
 		
@@ -219,9 +219,32 @@ namespace Sql.Net.Types
 			DateTime? result = null;
 			if (dateTime.HasValue == true)
 			{
-				result = dateTime.Value.EndOfWeek();
+				result = dateTime.Value.EndOfYear();
 			}
 			return result;
 		}
-	}
+
+        [SqlFunction()]
+        public static DateTime? DateBeginingOfQuarter(DateTime? dateTime)
+        {
+            DateTime? result = null;
+            if (dateTime.HasValue == true)
+            {
+                result = dateTime.Value.BeginingOfQuarter();
+            }
+            return result;
+
+        }
+
+        [SqlFunction()]
+        public static DateTime? DateEndOfQuarter(DateTime? dateTime)
+        {
+            DateTime? result = null;
+            if (dateTime.HasValue == true)
+            {
+                result = dateTime.Value.EndOfQuarter();
+            }
+            return result;
+        }
+    }
 }

@@ -33,16 +33,16 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataGen.Cryptography, Version=1.6.2.32525, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DataGen.Cryptography.1.6.2\lib\net35\DataGen.Cryptography.dll</HintPath>
+    <Reference Include="DataGen.Cryptography, Version=1.7.3.33936, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGen.Cryptography.1.7.3\lib\net35\DataGen.Cryptography.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataGen.Extensions, Version=1.6.2.32507, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DataGen.Extensions.1.6.2\lib\net35\DataGen.Extensions.dll</HintPath>
+    <Reference Include="DataGen.Extensions, Version=1.7.3.33916, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGen.Extensions.1.7.3\lib\net35\DataGen.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataGen.NumberToWords, Version=1.6.2.32519, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DataGen.NumberToWords.1.6.2\lib\net35\DataGen.NumberToWords.dll</HintPath>
+    <Reference Include="DataGen.NumberToWords, Version=1.7.3.33928, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGen.NumberToWords.1.7.3\lib\net35\DataGen.NumberToWords.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -74,9 +74,7 @@
     <Compile Include="Types\String.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

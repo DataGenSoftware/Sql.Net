@@ -315,6 +315,16 @@ AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.DateTimeType].DateEndOfYear
 GO
 CREATE SYNONYM [SqlNet].[EndOfYear] FOR [SqlNet].[DateTimeEndOfYear]
 GO
+CREATE FUNCTION [SqlNet].[DateTimeBeginingOfQuarter](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.DateTimeType].DateBeginingOfQuarter
+GO
+CREATE SYNONYM [SqlNet].[BeginingOfQuarter] FOR [SqlNet].[DateTimeBeginingOfQuarter]
+GO
+CREATE FUNCTION [SqlNet].[DateTimeEndOfQuarter](@dateTime datetime) RETURNS datetime
+AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.DateTimeType].DateEndOfQuarter
+GO
+CREATE SYNONYM [SqlNet].[EndOfQuarter] FOR [SqlNet].[DateTimeEndOfQuarter]
+GO
 CREATE FUNCTION [SqlNet].[DateTimeIsHoliday](@dateTime datetime) RETURNS BIT AS
 BEGIN
 	SET @dateTime = [SqlNet].[DateTimeDate](@dateTime)

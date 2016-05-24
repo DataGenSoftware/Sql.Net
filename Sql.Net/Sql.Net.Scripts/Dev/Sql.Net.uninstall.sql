@@ -198,6 +198,14 @@ DROP FUNCTION [SqlNet].[DateTimeEndOfYear]
 GO
 DROP SYNONYM [SqlNet].[EndOfYear]
 GO
+DROP FUNCTION [SqlNet].[DateTimeBeginingOfQuarter]
+GO
+DROP SYNONYM [SqlNet].[BeginingOfQuarter]
+GO
+DROP FUNCTION [SqlNet].[DateTimeEndOfQuarter]
+GO
+DROP SYNONYM [SqlNet].[EndOfQuarter]
+GO
 DROP FUNCTION [SqlNet].[DateTimeIsHoliday]
 GO
 DROP SYNONYM [SqlNet].[IsHoliday]
