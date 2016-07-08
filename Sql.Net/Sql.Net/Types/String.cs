@@ -12,7 +12,19 @@ namespace Sql.Net.Types
 {
 	public static class StringType
 	{
-		[SqlFunction()]
+        [SqlFunction()]
+        public static Boolean StringIsNullOrEmpty(String text)
+        {
+            return string.IsNullOrEmpty(text);
+        }
+
+        [SqlFunction()]
+        public static Boolean StringIsNullOrWhiteSpace(String text)
+        {
+            return string.IsNullOrEmpty(text.Trim());
+        }
+
+        [SqlFunction()]
 		public static Boolean? StringContains(String text, String value)
 		{
 			Boolean? result = null;

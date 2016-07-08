@@ -255,6 +255,15 @@ GO
 DROP FUNCTION [SqlNet].[SingleTryParse]
 GO
 
+
+DROP FUNCTION [SqlNet].[StringIsNullOrEmpty]
+GO
+DROP SYNONYM [SqlNet].[IsNullOrEmpty]
+GO
+DROP FUNCTION [SqlNet].[StringIsNullOrWhiteSpace]
+GO
+DROP SYNONYM [SqlNet].[IsNullOrWhiteSpace]
+GO
 DROP FUNCTION [SqlNet].[StringContains]
 GO
 DROP SYNONYM [SqlNet].[Contains]

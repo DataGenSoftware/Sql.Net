@@ -426,6 +426,16 @@ CREATE FUNCTION [SqlNet].[SingleTryParse](@value nvarchar(max)) RETURNS real
 AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.SingleType].SingleTryParse
 GO
 
+CREATE FUNCTION [SqlNet].[StringIsNullOrEmpty](@text nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.StringType].StringIsNullOrEmpty
+GO
+CREATE SYNONYM [SqlNet].[IsNullOrEmpty] FOR [SqlNet].[StringIsNullOrEmpty]
+GO
+CREATE FUNCTION [SqlNet].[StringIsNullOrWhiteSpace](@text nvarchar(max)) RETURNS bit
+AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.StringType].StringIsNullOrWhiteSpace
+GO
+CREATE SYNONYM [SqlNet].[IsNullOrWhiteSpace] FOR [SqlNet].[StringIsNullOrWhiteSpace]
+GO
 CREATE FUNCTION [SqlNet].[StringContains](@text nvarchar(max), @value nvarchar(max)) RETURNS bit
 AS EXTERNAL NAME [SqlNet].[Sql.Net.Types.StringType].StringContains
 GO
